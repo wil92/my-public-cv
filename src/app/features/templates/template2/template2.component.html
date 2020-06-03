@@ -88,7 +88,7 @@
       <table>
         <tr *ngFor="let edu of curriculum.education">
           <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}-{{edu.endDate.getFullYear() || ''}}</td>
-          <td class="second">{{edu.entity}}</td>
+          <td class="second"><markdown [data]="edu.entity"></markdown></td>
         </tr>
       </table>
     </div>

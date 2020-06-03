@@ -1,0 +1,214 @@
+$padding: 35px;
+
+$primary: #444444;
+$secondary: #696969;
+$white: #fff;
+$black: #000;
+
+:host {
+  @font-face {
+    font-family: 'Lato Light';
+    src: url('../../../../assets/fonts/Lato-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  //noinspection CssNoGenericFontName,CssInvalidPropertyValue
+  font-family: 'Lato Light';
+
+  .fill-space {
+    width: 100%;
+  }
+
+  .page {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+
+    .left {
+      width: 30%;
+      min-height: calc(100vh - 40px);
+      padding-top: $padding;
+      padding-left: $padding;
+      padding-right: $padding;
+      color: $white;
+
+      background-color: $primary;
+
+      .avatar-container {
+        display: flex;
+        justify-content: center;
+
+        .avatar {
+          max-width: 60%;
+          min-width: 60%;
+          position: relative;
+          border-radius: 50%;
+          border: 3px solid $primary;
+          box-shadow: $white 0 0 0 2px;
+        }
+      }
+
+      .name {
+        text-transform: uppercase;
+        display: flex;
+        justify-content: center;
+        font-size: 24px;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .position {
+        display: flex;
+        justify-content: center;
+        font-size: 15px;
+        text-align: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+
+      .personal-data {
+        display: flex;
+        margin-top: 5px;
+
+        .data-title {
+          font-weight: bold;
+        }
+
+        .sub-data {
+          display: flex;
+          flex-direction: column;
+          margin-left: 10px;
+        }
+      }
+
+      .title {
+        display: flex;
+        flex-direction: row;
+        margin: 10px 0 5px 0;
+
+        h2 {
+          white-space: nowrap;
+          margin: 0 $padding 0 0;
+        }
+
+        .line-container {
+          width: 100%;
+          position: relative;
+
+          .line {
+            background-color: $white;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+
+      markdown {
+        ::ng-deep p {
+          margin: 0;
+        }
+      }
+
+      .skills {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .skill {
+          margin-bottom: 10px;
+
+          .progress {
+            position: relative;
+
+            .tile-container {
+              position: absolute;
+              top: 0;
+            }
+
+            .tile-container, .bar-container {
+              display: flex;
+            }
+
+            .tile {
+              background-color: $white;
+            }
+
+            .bar {
+              background-color: $secondary;
+            }
+
+            .tile, .bar {
+              width: 10px;
+              height: 10px;
+              transform: skew(-30deg);
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .right {
+      width: 70%;
+      padding-top: $padding;
+      padding-left: $padding;
+      padding-right: $padding;
+
+      color: $black;
+
+      .title {
+        display: flex;
+        flex-direction: row;
+        margin: 10px 0 5px 0;
+
+        h2 {
+          white-space: nowrap;
+          margin: 0 $padding 0 0;
+          font-weight: bold;
+        }
+
+        .line-container {
+          width: 100%;
+          position: relative;
+
+          .line {
+            background-color: $black;
+            width: 100%;
+            height: 2px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+
+      markdown {
+        ::ng-deep p {
+          margin: 0;
+        }
+      }
+
+      table {
+        tr {
+          .first {
+            width: 30%;
+
+            span {
+              font-weight: bold;
+            }
+          }
+
+          td {
+            vertical-align: initial;
+          }
+        }
+      }
+    }
+  }
+}

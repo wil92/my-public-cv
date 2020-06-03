@@ -1,0 +1,202 @@
+{
+  "name": "Guillermo Gonzalez Jimenez",
+  "status": "recruited",
+  "experienceTime": "4+ years",
+  "address": "[ae] San Rafael Office, Havana, Cuba",
+  "personalDescription": "Full Stack Developer",
+  "phoneNumbers": [
+    "+53 54772869"
+  ],
+  "emails": [
+    "guille@aleph.engineering"
+  ],
+  "personUrl": "assets/images/guille-ae.png",
+  "profile": "Guillermo, aka 'Guille' is an experienced *software engineer* with more than 4 years experience in technologies like **Node.js**, **Python** and **Java**. For the last year he was involved in *front-end* projects with **Angular** and **React**, and some *back-end* projects with **Django** (Python) and **Express** (Node.js). He also has *DevOps* experience with technologies like **Docker** and **GitLab CI/CD**.",
+  "personalStatement": "There are 10 types of people in the world, those who can read BINARY and those who cannot.",
+  "achievements": [
+    "Member of final contestants three times in the Caribbean Final Regional of the ACM/ICPC Contest"
+  ],
+  "skills": [
+    {
+      "name": "Angular",
+      "level": 95
+    },
+    {
+      "name": "React",
+      "level": 80
+    },
+    {
+      "name": "Node.js",
+      "level": 100
+    },
+    {
+      "name": "Express",
+      "level": 90
+    },
+    {
+      "name": "Python",
+      "level": 80
+    },
+    {
+      "name": "Django",
+      "level": 85
+    },
+    {
+      "name": "Algorithms",
+      "level": 90
+    },
+    {
+      "name": "Data Structures",
+      "level": 85
+    }
+  ],
+  "programmingLanguages": [
+    "Javascript",
+    "Typescript",
+    "Java",
+    "Python",
+    "C++",
+    "CSS",
+    "HTML",
+    "MarkDown",
+    "SQL",
+    "Bash",
+    "PHP"
+  ],
+  "libraries": [
+    "Angular",
+    "AngularJS",
+    "GraphQL",
+    "Apollo",
+    "React",
+    "Express.js",
+    "Sails.js",
+    "Django",
+    "Graphene",
+    "Jest",
+    "Karma",
+    "Jasmine",
+    "Angular Material"
+  ],
+  "methodologies": [
+    "XP",
+    "Scrum"
+  ],
+  "mobileTechnologies": [
+    "Android SDK",
+    "React Native"
+  ],
+  "desktopTechnologies": [
+    "JavaFX",
+    "Qt"
+  ],
+  "databases": [
+    "MySQL",
+    "Sqlite",
+    "MongoDB",
+    "PostgreSQL"
+  ],
+  "ormLibraries": [
+    "Django ORM",
+    "GreenDAO (Android)",
+    "Waterline (sails.js)"
+  ],
+  "ideTools": [
+    "WebStorm",
+    "PyCharm",
+    "AndroidStudio",
+    "Visual Studio Code",
+    "Eclipse",
+    "Netbean",
+    "Codeblocks",
+    "Qt Creator"
+  ],
+  "buildTools": [
+    "Webpack",
+    "Cmake",
+    "Maven",
+    "Grunt",
+    "Gradle"
+  ],
+  "ciTools": [
+    "GitLab",
+    "Docker",
+    "Travis CI"
+  ],
+  "operatingSystems": [
+    "Ubuntu",
+    "Android",
+    "Windows"
+  ],
+  "otherTools": [
+    "Visual Paradigm",
+    "GIMP",
+    "Blender"
+  ],
+  "education": [
+    {
+      "title": "Bachelor of Computer Science",
+      "startDate": "2011-07-01T04:00:00.000Z",
+      "endDate": "2016-09-01T04:00:00.000Z",
+      "entity": "University of Information Sciences, 2016"
+    }
+  ],
+  "social": [
+    {
+      "identity": "ggjnez",
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/ggjnez/"
+    },
+    {
+      "identity": "guillermo-gonzález",
+      "name": "stackoverflow",
+      "url": "https://stackoverflow.com/users/10292044/guillermo-gonz%c3%a1lez"
+    },
+    {
+      "identity": "wil92",
+      "name": "github",
+      "url": "https://github.com/wil92"
+    },
+    {
+      "identity": "ggjnez92",
+      "name": "twitter",
+      "url": "https://twitter.com/ggjnez92"
+    }
+  ],
+  "experience": [
+    {
+      "name": "Aleph Engineering GmbH",
+      "startDate": "2018-10-01T04:00:00.000Z",
+      "description": "## Projects\n\n### Wassermeloni (2019/08 - 2019/09)\n\n- Description: Wassermeloni is Germany's biggest Swimming School, with about 4000 kids being trained every week. The project's purpose was to create a digital platform for client interaction. This includes the documentation and visualization of the educational progress of the kids as well as managing course bookings and rescheduling of courses. The application includes further modules like an image gallery for underwater photography with a webshop and a module for lessons rescheduling. The platform is currently receiving a grant from a German Innovation Program in order to be extended into a comprehensive corporate platform, including artificial intelligence algorithms to improve educational efficiency.\n- Tasks:\n   - Migrate the front-end components to the latest version of AngularJS. \n\n- Role: Front-end Developer\n\n- Team: 1 Product Owner, 3 Developers\n\n- Technologies: **AngularJS**, **Ruby**, **Rails**, **Docker**, **GitLab**, **Webpack**, **SASS**, **Karma**, **Jasmine**\n\n---\n### GitLab Utilities (2019/06 - 2019/09)\n\n- Description: This project arose as an internal desire of Aleph Engineering to obtain more sophisticated information related to the monitoring of performance metrics of their engineers. The data source used is GitLab. Target information includes statistics and visualization about working hours, number of problems detected in a time range, number of commits, etc. This project achieves greater transparency about the performance and progress of each engineer.\n- Tasks:\n   - Create service API to gather information from GitLab.\n   - Integrate the application with Google Spreadsheet.\n   - Create and manage a MongoDB for store historical data from GitLab.\n   - Configure the Continuous Integration of the project.\n   - Code reviews.\n  \n- Role: Backend Developer\n\n- Team: 3 Developers \n\n- Technologies: **Django**, **Graphene**, **GitLab**, **Docker**, **GitLab API**\n\n### KEA App (2018/11 - 2019/06)\n\n  - Description: The customer is one of the most prominent daycare institutions in Germany with more than 30,000 children. The goal of this project is to provide a mobile platform to capture, track and follow-up on the digital documentation of kids’ skills and interests.\n\n Furthermore, the platform includes modules for task management and communication with various stakeholders like parents,educational institutions and the Kita management.\n\n As the security requirements for kids data is extremely high special infrastructure to ensure data protection needed to be taken into account.\n\n At the same time, a fun visualization and some gamification mechanisms for users have been implemented to enhance user experience and motivation.\n  - Tasks:\n   - Implement the authentication component of the application.\n   - Create core components of the front-end app.\n   - Create a mock api to simulate the backend services.\n   - Configure the Continuous Integration of the project.\n   - Code reviews.\n  \n  - Role: Front-end Developer\n  - Team: 1 Project Manager, 7 Developers  \n  \n  - Technologies: **Angular**, [**Getsandbox**](https://getsandbox.com/), **Symfony**, **PHP**, **GitLab**, **Django**, **Graphene**, **Apollo-Client**, **Docker**\n\n---\n### Feed On Ideas (2018/09 - 2018/10)\n\n - Description: Modern and fast platform to manage User feedback for websites. The Platform provides a widget to be integrated into any given websites to enable the user to register feedback, recommendations and new ideas to the owner and/or developers of that website.\n - Tasks:\n   - Create a model to store the data.\n   - Create a GraphQL API in the back-end side using Graphene.\n   - Create a GraphQL connection in the front-end side using Apollo-Client.\n   - Implement the main components of the front-end app.\n   - Configure the Continuous Integration of the project.\n   - Code reviews.\n - Role: Fullstack Developer\n - Team: 1 Project Owner, 5 Developers\n - Technologies: **Angular**, **Django**, **Graphql**, **Graphene**, **Apollo-Client**, **GitLab**, **Docker**\n\n---"
+    },
+    {
+      "name": "Freelancer",
+      "startDate": "2017-10-01T04:00:00.000Z",
+      "endDate": "2018-10-01T04:00:00.000Z",
+      "description": "## Projects\n\n### XinXin (2017/11 - 2018/02)\n\n- Description: [Bellotour](http://bellotour.com) is a Chinese tourism agency with businesses in Cuba. To make the vacation of its tourists in Cuba more accessible, the agency requested the development of an application that allows their Chinese customers to communicate in the country.\n\n The software is a mobile social network, where tourists can share places, photos, videos, and moments during their vacations and, at the same time, ask the agency for help if necessary. \n\n- Tasks:\n - Authentication through socket.io in the application.\n - Receiving and sending messages through emails if the mobile was without the internet.\n - Configure the Continuous Integration of the project.\n - Compressing and decompressing images and audios for sending these through emails.\n\n- Role: Android Developer\n\n- Team: 3 Developers\n\n- Technologies: **Android**, **GreenDAO**, **Java**, **Node.js**, **Sails.js**, **Socket.io**, **Docker**, **GitLab**, **Trello**\n\n---\n### Wankar (2018/01 - 2018/05)\n\n- Description: The main task of this project was to create an educational platform for teaching Kichwa language in Ecuador. Kichwa is an official language in many Latin American countries and Ecuador is one of the countries with many indigenous people speaking this language. The application was honored as a valuable contribution to not lose this native language.\n\n- Tasks:\n - Configure Continuous Integration of the project.\n - Create a model to store the data.\n - Implement the authentication component with the JSON web token method.\n - Create a component to create audio from a text in a selected language.\n - Implement the internationalization in the application.\n - Create an administration module in the application.\n\n- Role: Fullstack Developer\n\n- Team: 3 Developers\n\n- Technologies: **Node.js**, **Sails.js**, **Angular**, **Docker**, **GitLab**, **Trello**, **Android SDK**, **React Native**\n"
+    },
+    {
+      "name": "Freelancer",
+      "startDate": "2017-10-01T04:00:00.000Z",
+      "endDate": "2018-10-01T04:00:00.000Z",
+      "breakPage": true,
+      "description": "## Projects\n\n### GaMo (2017/01 - 2017/02)\n\n- Description: GaMo (Mobile Gallery) is a mobile application created to facilitate the interactions that visitors have in an art gallery. It is based on making use of the local networks of the galleries so that visitors can obtain information about the works on display, share comments, and be part of the atmosphere that is generated.\n\n- Tasks: \n - Implement the authentication component with Json web token method\n - Setup websocket for a chat in the application\n - Implement chunk upload for heavy images in the application\n - Configure Continuous Integration of the project\n\n- Role: Fullstack Developer\n\n- Team: 3 Developers\n\n- Technologies: **Node.js**, **Sails.js**, **Angular**, **Mocha**, **Chai**\n"
+    },
+    {
+      "name": "Informatics Science University",
+      "startDate": "2016-10-01T04:00:00.000Z",
+      "endDate": "2018-10-01T04:00:00.000Z",
+      "description": "## Projects\n\n### ATcnea (2016/09 - 2018/08)\n\n- Description: The use of Information technology in Cuba has been constantly growing in the last 10 years, and as part of the country's strategy, it was considered necessary by the government to introduce these new technologies in the educational sector. In this context, the ATcnea project had been started with the idea of creating a full technological classroom in which teachers use a laptop and a digital board and each student is provided a tablet.\n\n The project has two applications — a desktop application for the teacher and a mobile app for students. The objective is to be able to control and teach the classes using these devices, control student attendance, conduct questionnaires, and keep track of homework.\n\n The teacher has an electronic board on which, as he writes, the content is updated in real-time on the students' tablets. Similarly, students can write on their tablets and reflect their contributions to the board. It is two-way communication in order to make the teaching process more efficient.\n\n- Task: \n - Implement the authentication module.\n - Implement a module for bidirectional communication between the teachers’ and the students’ application through a Socket connection.\n - Implement Board component with all features for creating and handling text, images, and elements like geometric forms.\n - Implement Quiz component with different types of questions and interactive features.\n - Configure Continuous Integration of the project, to automatically generate the Android application after pushing new changes in Gitlab.\n\n- Role: Android Developer\n\n- Team: 1 Project Manager, 2 ScrumMasters, 7 Developers\n\n- Technologies: **Android**, **JavaFX**, **Java**, **Doctrine**, **GreenDAO**, **Socket**\n\n\n## Post-degree\n\n### Courses\n  \n(2018-Mar-22) Competitive Programming Course by Artsem Zhuk\n\n(2018-Jul-05) Competitive Programming Course by Pablo Zimmermann\n\n\n## Events\n\n### University\n \n(2016) Pachamama Game Jam\n\n(2017) Pachamama Game Jam\n\n(2017) Global Game Jam\n"
+    }
+  ],
+  "languages": [
+    {
+      "name": "spanish",
+      "description": "native"
+    },
+    {
+      "name": "english",
+      "description": "professional"
+    }
+  ]
+}

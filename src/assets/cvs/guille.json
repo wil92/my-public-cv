@@ -1,0 +1,142 @@
+{
+  "name": "Guillermo Gonzalez Jimenez",
+  "status": "recruited",
+  "experienceTime": "3+ years",
+  "address": "Villalobos Street #11617, San Miguel, La Havana, Cuba. ZIP: 11000",
+  "personalDescription": "Full Stack Developer",
+  "phoneNumbers": [
+    "+53 54772869"
+  ],
+  "emails": [
+    "guille@aleph.engineering", "ggjnez92@gmail.com"
+  ],
+  "personUrl": "assets/images/guille.jpg",
+  "profile": "I am an experienced *software engineer* with more than 3 years experience in technologies like **Node.js**, **Java** and **Python**. For the last year I was involved in *frontend* projects with **Angular** and **React**, and some *backend* projects with **Django** (Python) and **Express** (Node.js). I have also devops experience with technologies like **Docker** and **Gitlab CI/CD**.",
+  "skills": [
+    {
+      "name": "Angular",
+      "level": 95
+    },
+    {
+      "name": "React",
+      "level": 80
+    },
+    {
+      "name": "Node.js",
+      "level": 100
+    },
+    {
+      "name": "Express",
+      "level": 90
+    },
+    {
+      "name": "Algorithms",
+      "level": 90
+    },
+    {
+      "name": "Data Structures",
+      "level": 85
+    },
+    {
+      "name": "Python",
+      "level": 80
+    },
+    {
+      "name": "Django",
+      "level": 85
+    }
+  ],
+  "programmingLanguages": [
+    "Javascript",
+    "Typescript",
+    "Java",
+    "Python",
+    "C++",
+    "Bash",
+    "PHP"
+  ],
+  "libraries": [
+    "Angular",
+    "AngularJS",
+    "GraphQL",
+    "Apollo",
+    "React",
+    "Express.js",
+    "Sails.js",
+    "Django",
+    "Graphene"
+  ],
+  "methodologies": [
+    "XP",
+    "Scrum"
+  ],
+  "mobileTechnologies": [
+    "Android",
+    "React Native"
+  ],
+  "databases": [
+    "MySQL",
+    "Sqlite",
+    "MongoDB",
+    "PostgreSQL"
+  ],
+  "education": [
+    {
+      "title": "Bachelor of Computer Science",
+      "startDate": "2011-07-01T04:00:00.000Z",
+      "endDate": "2016-09-01T04:00:00.000Z",
+      "entity": "University of Informatics Sciences"
+    }
+  ],
+  "social": [
+    {
+      "identity": "ggjnez",
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/ggjnez/"
+    },
+    {
+      "identity": "guillermo-gonzález",
+      "name": "stackoverflow",
+      "url": "https://stackoverflow.com/users/10292044/guillermo-gonz%c3%a1lez"
+    },
+    {
+      "identity": "ggjnez92",
+      "name": "twitter",
+      "url": "https://twitter.com/ggjnez92"
+    },
+    {
+      "identity": "ggjnez",
+      "name": "facebook",
+      "url": "https://www.facebook.com/ggjnez"
+    }
+  ],
+  "experience": [
+    {
+      "name": "Aleph Engineering",
+      "startDate": "2018-10-01T04:00:00.000Z",
+      "description": "- **Projects**:\n\n  - Kita: Innovative solution for children's gardens in Germany\n  - Internal projects for improve the process in the company\n\n- **Technologies**:\n\n  - Angular\n  - React\n  - Node.js (Express.js, Sails.js)\n  - Python (Django)"
+    },
+    {
+      "name": "Freelancer",
+      "startDate": "2018-10-01T04:00:00.000Z",
+      "endDate": "2018-10-01T04:00:00.000Z",
+      "description": "- **Projects**:\n\n  - XinXin: Mobile Social Network for chinese tourist in Cuba\n  - Wankar: Educational platform for teach kichwa language in Ecuador\n\n- **Technologies**:\n\n  - Android\n  - Node.js (Express.js, Sails.js)\n  - React Native"
+    },
+    {
+      "name": "Informatics Science University",
+      "startDate": "2016-10-01T04:00:00.000Z",
+      "endDate": "2018-10-01T04:00:00.000Z",
+      "description": "- **Projects**:\n\n  - ATcnea project: Software for a technology class room in Cuba\n  - Active coach and staff in ICPC contests\n\n- **Technologies**:\n\n  - Android\n  - AngularJS, Angular\n  - Node.js (Sails.js)\n  - React native"
+    }
+  ],
+  "languages": [
+    {
+      "name": "spanish",
+      "description": "native"
+    },
+    {
+      "name": "english",
+      "description": "professional"
+    }
+  ]
+}

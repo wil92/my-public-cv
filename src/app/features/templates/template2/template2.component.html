@@ -1,0 +1,102 @@
+<div class="page">
+  <div class="left">
+    <div class="avatar-container">
+      <img class="avatar"
+           [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
+           alt="avatar">
+    </div>
+    <div class="name">
+      {{curriculum?.name}}
+    </div>
+    <div class="position">
+      {{curriculum?.personalDescription}}
+    </div>
+    <div class="personal-data"
+         *ngIf="curriculum?.address">
+      <span class="data-title">Address: </span>
+      <div class="sub-data">{{curriculum?.address}}</div>
+    </div>
+    <div class="personal-data"
+         *ngIf="curriculum?.phoneNumbers">
+      <span class="data-title">Phone(s):</span>
+      <div class="sub-data"><span *ngFor="let number of curriculum?.phoneNumbers">{{number}}</span></div>
+    </div>
+    <div class="personal-data"
+         *ngIf="curriculum?.emails">
+      <span class="data-title">Email(s):</span>
+      <div class="sub-data"><span *ngFor="let email of curriculum?.emails">{{email}}</span></div>
+    </div>
+    <div class="personal-data"
+         *ngIf="curriculum?.languages">
+      <span class="data-title">Language(s):</span>
+      <div class="sub-data"><span *ngFor="let language of curriculum?.languages">{{language.name}}: {{language.description}}</span></div>
+    </div>
+    <div class="title"
+         *ngIf="curriculum?.profile">
+      <h2>About Me</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <markdown *ngIf="curriculum?.profile"
+              class="text"
+              [data]="curriculum?.profile"></markdown>
+    <div class="title"
+         *ngIf="curriculum?.skills">
+      <h2>Skills</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="skills"
+         *ngIf="curriculum?.skills">
+      <div *ngFor="let skill of curriculum?.skills"
+           class="skill">
+        {{skill?.name}}
+        <div class="progress">
+          <div class="bar-container">
+            <div class="bar"
+                 *ngFor="let ignore of createArray(tilesCount)"></div>
+          </div>
+          <div class="tile-container">
+            <div class="tile"
+                 *ngFor="let ignore of createArray(progressTilesCount(skill.level))"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="title"
+         *ngIf="curriculum?.experience">
+      <h2>Work History</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div *ngIf="curriculum?.experience">
+      <table>
+        <tr *ngFor="let job of curriculum.experience">
+          <td class="first"><span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
+          <td class="second"><markdown [data]="job.description"></markdown></td>
+        </tr>
+      </table>
+    </div>
+    <div class="title"
+         *ngIf="curriculum?.education">
+      <h2>Education</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div *ngIf="curriculum?.education">
+      <table>
+        <tr *ngFor="let edu of curriculum.education">
+          <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}-{{edu.endDate.getFullYear() || ''}}</td>
+          <td class="second">{{edu.entity}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

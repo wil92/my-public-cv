@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    image: "${DOCKER_IMAGE}:${BUILD_VERSION}"
+    restart: always
+    env_file:
+    - ${ENVFILE}
+    expose:
+    - "80"
+    ports:
+    - "${CV_APP_PORT}:80"
+    volumes:
+    - ${CV_APP_DIST}/media:/usr/share/media:ro

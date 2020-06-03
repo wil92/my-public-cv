@@ -1,0 +1,204 @@
+variables:
+  GIT_STRATEGY: fetch
+  GIT_DEPTH: "50"
+  GIT_SUBMODULE_STRATEGY: recursive
+
+default:
+  image: node:11.10.0
+  cache: &global_cache
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+    - node_modules/
+    policy: pull-push
+
+stages:
+- test
+- analysis_n_build
+- pack
+- deploy
+
+prepare:
+  stage: .pre
+  tags:
+  - docker
+  - dind
+  cache:
+    <<: *global_cache
+    policy: push
+  dependencies: []
+  artifacts:
+    expire_in: 3 weeks
+    paths:
+    - docker-compose.yml
+    - Dockerfile
+    - nginx.conf
+  before_script:
+  - npm config set registry ${CE_NPM_REGISTRY}
+  script:
+  - npm ci
+  only:
+    refs:
+    - development
+    - master
+
+test:unit:
+  stage: test
+  tags:
+  - docker
+  - dind
+  cache:
+    <<: *global_cache
+    policy: pull
+  allow_failure: true
+  before_script:
+  - mkdir coverage
+  script:
+  - npm run test-ci
+  coverage: '/All files[^|]*\|[^|]*\s+([\d\.]+)/'
+  dependencies: []
+  artifacts:
+    expire_in: 1 day
+    paths:
+    - coverage/
+  only:
+    refs:
+    - development
+
+analysis:lint:
+  stage: analysis_n_build
+  tags:
+  - docker
+  - dind
+  cache:
+    <<: *global_cache
+    policy: pull
+  allow_failure: true
+  before_script:
+  - update-ca-certificates
+  script:
+  - npm run lint
+  dependencies: []
+  only:
+    refs:
+    - development
+
+analysis:sonar:
+  stage: analysis_n_build
+  tags:
+  - docker
+  - dind
+  image: ciricihq/gitlab-sonar-scanner:3.2.0
+  needs:
+  - "test:unit"
+  cache: {}
+  allow_failure: true
+  variables:
+    SONAR_URL: ${SONAR_URL}
+    SONAR_ANALYSIS_MODE: publish
+    SONAR_AUTH_TOKEN: ${SONAR_AUTH_TOKEN_GITLAB_VAR}
+  script:
+  - gitlab-sonar-scanner -Dsonar.login=${SONAR_AUTH_TOKEN}
+  dependencies:
+  - "test:unit"
+  only:
+    refs:
+    - development
+
+.build_template: &build_definition
+  stage: analysis_n_build
+  tags:
+  - docker
+  - dind
+  cache:
+    <<: *global_cache
+    policy: pull
+  dependencies: []
+  artifacts:
+    expire_in: 3 weeks
+    paths:
+    - dist/
+  before_script:
+  - mkdir -p ~/.ssh/
+  - echo "$DEPLOY_SSH_PV_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - scp -o StrictHostKeyChecking=no aleph@ddnnss.eu:/home/aleph/cuban.engineer/cuban.engineer-frontend/ce-frontend-$CI_COMMIT_REF_NAME.env ./
+  script:
+  - set -a && . ce-frontend-$CI_COMMIT_REF_NAME.env && set +a && npm run build
+  after_script:
+  - rm ce-frontend-$CI_COMMIT_REF_NAME.env
+
+build:production:
+  <<: *build_definition
+  environment:
+    name: production
+  only:
+    refs:
+    - master
+
+.pack_docker_template: &docker_pack
+  image: docker:stable
+  stage: pack
+  tags:
+  - docker
+  - dind
+  cache: {}
+  variables:
+    GIT_STRATEGY: none
+    DOCKER_DRIVER: overlay2
+  services:
+  - docker:dind
+  before_script:
+  - echo -n $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY
+  script:
+  - docker build --tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA .
+  - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
+  when: on_success
+
+pack:production_docker:
+  <<: *docker_pack
+  needs:
+  - "prepare"
+  - "build:production"
+  dependencies:
+  - "prepare"
+  - "build:production"
+  only:
+    refs:
+    - master
+
+.deploy_template: &docker_deploy
+  tags:
+  - docker
+  - dind
+  image: kroniak/ssh-client
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none
+  cache: {}
+  dependencies:
+  - "prepare"
+  before_script:
+  - mkdir -p ~/.ssh/
+  - echo "$DEPLOY_SSH_PV_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
+  - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+  - shopt -s expand_aliases
+  - alias ex='ssh aleph@ddnnss.eu'
+  - ex "echo -n $CI_JOB_TOKEN | docker login -u gitlab-ci-token --password-stdin $CI_REGISTRY"
+  script:
+  - scp -o StrictHostKeyChecking=no ./docker-compose.yml aleph@ddnnss.eu:/home/aleph/my-cv/
+  - ex "docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA"
+  - ex "cd /home/aleph/my-cv/ && export ENVFILE=cv-$CI_COMMIT_REF_NAME.env && set -a && . \$ENVFILE && set +a && DOCKER_IMAGE=$CI_REGISTRY_IMAGE BUILD_VERSION=$CI_COMMIT_SHA docker-compose down --remove-orphans"
+  - ex "cd /home/aleph/my-cv/ && export ENVFILE=cv-$CI_COMMIT_REF_NAME.env && set -a && . \$ENVFILE && set +a && DOCKER_IMAGE=$CI_REGISTRY_IMAGE BUILD_VERSION=$CI_COMMIT_SHA docker-compose up -d"
+
+deploy:production:
+  <<: *docker_deploy
+  needs:
+  - "prepare"
+  - "pack:production_docker"
+  only:
+    refs:
+    - master
+    variables:
+    - $CE_ENVIRONMENT == "INTERNET"

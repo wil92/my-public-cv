@@ -16,6 +16,15 @@
       <span class="data-title">Address: </span>
       <div class="sub-data">{{curriculum?.address}}</div>
     </div>
+    <div *ngIf="curriculum?.social">
+      <div *ngFor="let social of curriculum.social"
+           class="social">
+        <span class="data-title">{{social.name}}: </span>
+        <div class="container sub-data">
+          <a [href]="social.url">{{social.identity}}</a>
+        </div>
+      </div>
+    </div>
     <div class="personal-data"
          *ngIf="curriculum?.phoneNumbers">
       <span class="data-title">Phone(s):</span>
@@ -69,21 +78,6 @@
 
   <div class="right">
     <div class="title"
-         *ngIf="curriculum?.experience">
-      <h2>Work History</h2>
-      <div class="line-container">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div *ngIf="curriculum?.experience">
-      <table>
-        <tr *ngFor="let job of curriculum.experience">
-          <td class="first"><span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
-          <td class="second"><markdown [data]="job.description"></markdown></td>
-        </tr>
-      </table>
-    </div>
-    <div class="title"
          *ngIf="curriculum?.education">
       <h2>Education</h2>
       <div class="line-container">
@@ -95,6 +89,21 @@
         <tr *ngFor="let edu of curriculum.education">
           <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}-{{edu.endDate.getFullYear() || ''}}</td>
           <td class="second">{{edu.entity}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="title"
+         *ngIf="curriculum?.experience">
+      <h2>Work History</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div *ngIf="curriculum?.experience">
+      <table>
+        <tr *ngFor="let job of curriculum.experience">
+          <td class="first"><span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
+          <td class="second"><markdown [data]="job.description"></markdown></td>
         </tr>
       </table>
     </div>

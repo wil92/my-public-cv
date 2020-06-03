@@ -69,6 +69,23 @@ $black: #000;
         font-style: italic;
       }
 
+      .social {
+        display: flex;
+        margin-top: 5px;
+
+        .data-title{
+          font-weight: bold;
+          text-transform: capitalize;
+        }
+        .container {
+          margin-left: 10px;
+
+          a {
+            color: $white;
+          }
+        }
+      }
+
       .personal-data {
         display: flex;
         margin-top: 5px;

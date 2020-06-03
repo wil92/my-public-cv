@@ -147,11 +147,6 @@
       "url": "https://www.linkedin.com/in/ggjnez/"
     },
     {
-      "identity": "guillermo-gonzález",
-      "name": "stackoverflow",
-      "url": "https://stackoverflow.com/users/10292044/guillermo-gonz%c3%a1lez"
-    },
-    {
       "identity": "wil92",
       "name": "github",
       "url": "https://github.com/wil92"
@@ -160,6 +155,11 @@
       "identity": "ggjnez92",
       "name": "twitter",
       "url": "https://twitter.com/ggjnez92"
+    },
+    {
+      "identity": "guillermo-gonzález",
+      "name": "stackoverflow",
+      "url": "https://stackoverflow.com/users/10292044/guillermo-gonz%c3%a1lez"
     }
   ],
   "experience": [

@@ -3,7 +3,6 @@ import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 
 import {MarkdownModule} from 'ngx-markdown';
-import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {Template2Component} from './template2.component';
 import {Template2RoutingModule} from './template2-routing.module';
@@ -13,7 +12,6 @@ import {Template2RoutingModule} from './template2-routing.module';
   imports: [
     CommonModule,
     Template2RoutingModule,
-    FontAwesomeModule,
     MarkdownModule.forRoot(),
     HttpClientModule
   ]

@@ -1,16 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {
-  faFacebook,
-  faGoogle,
-  faLinkedinIn,
-  faSkype, faStackOverflow,
-  faTelegram,
-  faTwitter,
-  faYoutube
-} from '@fortawesome/free-brands-svg-icons';
-
 import {Curriculum} from '../../../core/models';
 import {endDateToShow} from '../../../shared/utils';
 
@@ -45,28 +35,5 @@ export class Template2Component implements OnInit {
 
   endDate(startDate: Date, endDate: Date) {
     return endDateToShow(startDate, endDate);
-  }
-
-  getMediaIcon(mediaName: string) {
-    switch (mediaName) {
-      case 'linkedin':
-        return faLinkedinIn;
-      case 'twitter':
-        return faTwitter;
-      case 'skype':
-        return faSkype;
-      case 'facebook':
-        return faFacebook;
-      case 'google':
-        return faGoogle;
-      case 'youtube':
-        return faYoutube;
-      case 'telegram':
-        return faTelegram;
-      case 'stackoverflow':
-        return faStackOverflow;
-      default:
-        return null;
-    }
   }
 }

@@ -1,13 +1,9 @@
 version: "3"
 services:
-  web:
-    image: "${DOCKER_IMAGE}:${BUILD_VERSION}"
+  my_cv:
+    container_name: 'my_cv'
+    build:
+      context: .
     restart: always
-    env_file:
-    - ${ENVFILE}
-    expose:
-    - "80"
     ports:
-    - "${CV_APP_PORT}:80"
-    volumes:
-    - ${CV_APP_DIST}/media:/usr/share/media:ro
+      - "${CV_PORT}:80"

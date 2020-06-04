@@ -1,11 +1,10 @@
 {
-  "name": "my-cv",
-  "version": "0.0.0",
+  "name": "my-personal-cv",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 3000",
     "build": "ng build --prod --build-optimizer --aot --vendor-chunk  --output-hashing=all --progress --extract-css=true --source-map=false",
-    "test": "ng test",
     "lint": "ng lint",
     "get-env-var": "node ./node_modules/ng-node-environment/index.js"
   },
@@ -23,12 +22,9 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
-    "@ngx-translate/core": "^11.0.1",
-    "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.6.10",
     "messageformat": "^2.3.0",
     "ngx-markdown": "^8.2.1",
-    "ngx-translate-messageformat-compiler": "^4.5.0",
     "rxjs": "^6.5.4",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -37,7 +33,6 @@
     "@angular-devkit/build-angular": "^0.800.6",
     "@angular/cli": "^8.3.17",
     "@angular/compiler-cli": "^8.2.14",
-    "@angular/language-service": "^8.2.14",
     "@types/node": "~8.9.4",
     "codelyzer": "^5.2.1",
     "ts-node": "~7.0.0",

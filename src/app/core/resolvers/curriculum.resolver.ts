@@ -6,14 +6,12 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
 import {Curriculum} from '../models';
-import {I18nService} from '../services/i18n.service';
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 @Injectable()
 export class CurriculumResolver implements Resolve<Curriculum> {
   constructor(
     private http: HttpClient,
-    private i18nService: I18nService
   ) {
   }
 
@@ -22,9 +20,6 @@ export class CurriculumResolver implements Resolve<Curriculum> {
     const cv = environment.cv;
     const techFilter = (route.paramMap.has('tech') ? route.paramMap.get('tech').split(',').map(tech => tech.trim().toLowerCase()) : []);
     const lang = (langRegex.test(cv)) ? cv.match(langRegex)[1] : '';
-    if (lang !== '') {
-      this.i18nService.use(lang);
-    }
     return this.http.get(`assets/cvs/${cv}`)
       .pipe(map((data: Curriculum) => {
         if (data.hasOwnProperty('programmingLanguages')) {
@@ -33,8 +28,7 @@ export class CurriculumResolver implements Resolve<Curriculum> {
         if (data.hasOwnProperty('experienceTime')) {
           const startWorking = Date.parse(data.experienceTime);
           if (!isNaN(startWorking)) {
-            data.experienceTime = Math.floor((Date.now() - startWorking) / (1000 * 3600 * 24 * 365.25)) + '+ ' +
-              this.i18nService.instant('years');
+            data.experienceTime = Math.floor((Date.now() - startWorking) / (1000 * 3600 * 24 * 365.25)) + '+ ' + 'years';
           }
         }
         if (data.hasOwnProperty('experience')) {
@@ -52,12 +46,10 @@ export class CurriculumResolver implements Resolve<Curriculum> {
                   technologies = technologies.concat(this.flatObjectValues(project.technologies));
                 });
                 if (projects.length) {
-                  job.description += '- **' + this.i18nService.instant('projects') +
-                    '**: \n\n' + '  - ' + projects.join('\n  - ') + '\n\n';
+                  job.description += '- **projects**: \n\n' + '  - ' + projects.join('\n  - ') + '\n\n';
                 }
                 if (technologies.length) {
-                  job.description += '- **' + this.i18nService.instant('technologies') +
-                    '**: ' + [...new Set(technologies)].sort().join(', ') + '\n\n';
+                  job.description += '- **technologies**: ' + [...new Set(technologies)].sort().join(', ') + '\n\n';
                 }
               }
             }

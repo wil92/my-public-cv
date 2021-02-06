@@ -1,128 +1,100 @@
-<div class="page">
-  <div class="left">
-    <div class="avatar-container">
-      <div class="back-rectangle"></div>
-      <img class="avatar"
-           [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
-           alt="avatar">
-    </div>
-
-    <div *ngIf="curriculum?.address"
-         class="personal-data">
-      <div class="icon"
-           style="text-align:center">
-        <fa-icon [icon]="addressIcon"></fa-icon>
-      </div>
-      {{curriculum?.address}}
-    </div>
-    <div *ngIf="curriculum?.phoneNumbers"
-         class="personal-data">
-      <div class="icon"
-           style="text-align:center">
-        <fa-icon [icon]="phoneIcon"></fa-icon>
-      </div>
-      <span *ngFor="let phone of curriculum?.phoneNumbers">
-        {{phone}}
-      </span>
-    </div>
-    <div *ngIf="curriculum?.emails"
-         class="personal-data">
-      <div class="icon"
-           style="text-align:center">
-        <fa-icon [icon]="mailIcon"></fa-icon>
-      </div>
-      <div>
-        <span *ngFor="let mail of curriculum?.emails">{{mail}}</span>
-      </div>
-    </div>
-    <div *ngIf="curriculum?.languages"
-         class="personal-data">
-      <div class="icon"
-           style="text-align:center">
-        <fa-icon [icon]="languageIcon"></fa-icon>
-      </div>
-      <div>
-        <span class="language"
-              *ngFor="let language of curriculum?.languages">{{language.name}}: {{language.description}}</span>
-      </div>
-    </div>
-    <div *ngIf="curriculum?.siteWeb"
-         class="personal-data">
-      <div class="icon"
-           style="text-align:center">
-        <fa-icon [icon]="addressIcon"></fa-icon>
-      </div>
-      {{curriculum?.siteWeb}}
-    </div>
-    <h3 class="title"
-        *ngIf="curriculum?.profile">
-      About me
-    </h3>
-    <markdown *ngIf="curriculum?.profile"
-              class="text"
-              [data]="curriculum?.profile"></markdown>
-    <h3 *ngIf="curriculum?.social"
-        class="title">
-      Social
-    </h3>
-    <div *ngIf="curriculum?.social">
-      <div *ngFor="let social of curriculum.social"
-           class="social">
-        <div class="icon"
-             style="text-align:center">
-          <fa-icon [icon]="getMediaIcon(social.name)"></fa-icon>
-        </div>
-        <div class="container">
-          <span class="name">{{social.name}}</span>
-          <a [routerLink]="social.url">{{social.identity}}</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="right">
-    <div class="avatar-container">
-      <img class="avatar"
-           [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
-           alt="avatar">
+<div class="left">
+  <div class="avatar-container">
+    <div class="back-rectangle">
       <div class="name-container">
         <h3>{{curriculum.personalDescription}}</h3>
-        <div class="sub-container">
-          <h1 class="name">{{curriculum.name}}</h1>
-        </div>
+        <h1 class="name">{{curriculum.name}}</h1>
       </div>
     </div>
-    <div *ngIf="curriculum?.education">
-      <h2 class="title">Education</h2>
-      <table>
-        <tr *ngFor="let edu of curriculum.education">
-          <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}-{{edu.endDate.getFullYear() || ''}}</td>
-          <td class="second">{{edu.entity}}</td>
-        </tr>
-      </table>
-    </div>
-    <div *ngIf="curriculum?.experience">
-      <h2 class="title">Experience</h2>
-      <table>
-        <tr *ngFor="let job of curriculum.experience">
-          <td class="first"><span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
-          <td class="second"><markdown [data]="job.description"></markdown></td>
-        </tr>
-      </table>
-    </div>
-    <div *ngIf="curriculum?.skills">
-      <h2 class="title">Skills</h2>
-      <div class="skills">
-        <div *ngFor="let skill of curriculum.skills"
-             class="skill">
-          <span>{{skill?.name || ''}}</span>
-          <div class="bar">
-            <div class="progress"
-                 [ngStyle]="{'width': (skill?.level || 0) + '%'}">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <img class="avatar"
+         [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
+         alt="avatar">
   </div>
+</div>
+
+<div *ngIf="curriculum?.address"
+     class="personal-data">
+  <div class="icon"
+       style="text-align:center">
+    <fa-icon [icon]="addressIcon"></fa-icon>
+  </div>
+  {{curriculum?.address}}
+</div>
+<div *ngIf="curriculum?.phoneNumbers"
+     class="personal-data">
+  <div class="icon"
+       style="text-align:center">
+    <fa-icon [icon]="phoneIcon"></fa-icon>
+  </div>
+  <span *ngFor="let phone of curriculum?.phoneNumbers">
+        {{phone}}
+      </span>
+</div>
+<div *ngIf="curriculum?.emails"
+     class="personal-data">
+  <div class="icon"
+       style="text-align:center">
+    <fa-icon [icon]="mailIcon"></fa-icon>
+  </div>
+  <div>
+    <span *ngFor="let mail of curriculum?.emails">{{mail}}</span>
+  </div>
+</div>
+<div *ngIf="curriculum?.languages"
+     class="personal-data">
+  <div class="icon"
+       style="text-align:center">
+    <fa-icon [icon]="languageIcon"></fa-icon>
+  </div>
+  <div>
+        <span class="language"
+              *ngFor="let language of curriculum?.languages">{{language.name}}: {{language.description}}</span>
+  </div>
+</div>
+<div *ngIf="curriculum?.siteWeb"
+     class="personal-data">
+  <div class="icon"
+       style="text-align:center">
+    <fa-icon [icon]="addressIcon"></fa-icon>
+  </div>
+  {{curriculum?.siteWeb}}
+</div>
+<h3 *ngIf="curriculum?.social?.length"
+    class="title">
+  Social
+</h3>
+<div>
+  <h3 class="title"
+      *ngIf="curriculum?.profile">
+    Resumen
+  </h3>
+  <markdown *ngIf="curriculum?.profile"
+            class="text"
+            [data]="curriculum?.profile"></markdown>
+</div>
+<div class="new-page"></div>
+<div *ngIf="curriculum?.experience">
+  <h2 class="title">Experiencia</h2>
+  <table>
+    <tr *ngFor="let job of curriculum.experience">
+      <td class="first">
+        <span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
+      <td class="second">
+        <markdown [data]="job.description"></markdown>
+      </td>
+    </tr>
+  </table>
+</div>
+<div *ngIf="curriculum?.education">
+  <h2 class="title">Educación</h2>
+  <table>
+    <tr *ngFor="let edu of curriculum.education">
+      <td class="first">
+        <span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}{{edu?.endDate ? '-' : ''}}{{edu?.endDate?.getFullYear() || ''}}
+      </td>
+      <td class="second">
+        <markdown [data]="edu.entity"></markdown>
+      </td>
+    </tr>
+  </table>
 </div>

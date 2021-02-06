@@ -1,0 +1,86 @@
+{
+  "name": "Jacqueline Gallardo Collazo",
+  "address": "San Pablo edif 517 apto #2 e/ Ayestaran y Coco, Cerro",
+  "personalDescription": "Ingeniero en Ciencia Informáticas",
+  "phoneNumbers": ["+53 53967939"],
+  "emails": ["jgc84@nauta.cu"],
+  "personUrl": "assets/images/jaque.jpg",
+  "profile": "Graduado de Ingeniero en Ciencias Informáticas el año 2007 en la Universidad  de Ciencias Informáticas (UCI), La Habana, Cuba. Desde el año de su graduación se desempeña como profesor, inicialmente en la Facultad Regional de Artemisa y posteriormente en la Universidad de las Ciencias Informáticas (UCI),  La Habana, Cuba.\n\nDurante su adiestramiento obtuvo la evaluación de satisfactorio y posteriormente  evaluaciones de bien en su desempeño como profesor Instructor. En este periodo confecciona un grupo de conferencias y clases prácticas con vista a la mejora de la asignatura de Matemática del departamento de Ciencias Básicas. Ha sido integrante de tribunales en los eventos científicos desarrollados en la Facultad Regional de Artemisa y en la Facultad 5 de la Universidad de las Ciencias Informáticas (UCI).\n\nA partir de octubre del 2010 comienza a trabajar como analista en el proyecto de Diseño y Simulación de Estructuras Mecánicas con la República de Venezuela, perteneciente a la Facultad 5 de la Universidad de las Ciencias Informáticas.\n\nEn febrero de 2017 comienza a trabajar en la empresa Comercializadora AXESS donde matriculó cursos de postgrado referentes a su actividad. \n\nSe ha destacado por su participación en tribunales de Eventos Científicos y Fórum de Ciencia y Técnica ya sea en la UCI como en la empresa Comercializadora AXESS.",
+  "education": [
+    {
+      "title": "Ingeniero en Ciencias Informáticas",
+      "startDate": "2002-07-01T04:00:00.000Z",
+      "endDate": "2007-09-01T04:00:00.000Z",
+      "entity": "- Universidad  de Ciencias Informáticas (UCI)"
+    },
+    {
+      "title": "Facultad Regional de Artemisa, Cuba",
+      "startDate": "2009-07-01T04:00:00.000Z",
+      "entity": "- Ejercicio de Lengua Inglesa para cambio de categoría a Asistente"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2009-07-01T04:00:00.000Z",
+      "entity": "- Ecuaciones Diferenciales. Curso de Postgrado\n- Funciones Vectoriales e Integrales Múltiples\n- Capital Humano. Nuestra Obra y su Resistencia. Cuba y sus Aliados\n- Metodología de la Investigación Científica\n- Docencia e Innovación Universitaria"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2011-07-01T04:00:00.000Z",
+      "entity": "- Curso de Realidad Virtual y Visión Estereoscópica\n- El diseño como Proceso de Optimización\n- Curso Básico de Gnu/Linux con aplicaciones a Ciencias Básicas\n- Estándares internacionales de Ingeniería de Software"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2013-07-01T04:00:00.000Z",
+      "entity": "- Defensa Nacional\n- Herramientas para la redacción de artículos"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2014-07-01T04:00:00.000Z",
+      "entity": "- Simulación\n- La mejora de proceso de software"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2015-07-01T04:00:00.000Z",
+      "entity": "- EV La Evaluación del aprendizaje en un proceso de enseñanza guiado por las TIC"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2016-07-01T04:00:00.000Z",
+      "entity": "- La estadística no paramétrica con software SPSS\n- Métodos multicriterios para la toma de decisiones"
+    },
+    {
+      "title": "Postgrado, La Habana, Cuba",
+      "startDate": "2017-07-01T04:00:00.000Z",
+      "entity": "- Metodología para el diseño de un Sistema de Gestión de la Seguridad Informática\n- Protocolo TCP/IP"
+    }
+  ],
+  "experience": [
+    {
+      "name": "GEASP",
+      "startDate": "2017-10-01T04:00:00.000Z",
+      "description": "- **Role**: Seguridad Informática\n- **Eventos:**\n\n    - Curso de redes en Segurmática y DISAIC\n    - Evento Nacional de SI en segurmática"
+    },
+    {
+      "name": "Empresa Comercializadora AXESS",
+      "startDate": "2017-10-01T04:00:00.000Z",
+      "endDate": "2017-10-01T04:00:00.000Z",
+      "description": "- **Role**: Seguridad Informática\n- **Eventos**:\n\n    - Tele clase de Seguridad Informática. Una vía económica que garantiza el aprendizaje. Lugar Destacado en el\n     primer Fórum de Ciencia y Técnica de la empresa Comercializadora AXESS, Hotel Tulipán, La Habana"
+    },
+    {
+      "name": "Universidad de Ciencias Informáticas (UCI)",
+      "startDate": "2006-10-01T04:00:00.000Z",
+      "endDate": "2017-10-01T04:00:00.000Z",
+      "description": "- **Role**: Profesor Universitario\n- **Eventos:**\n\n    - Propuesta de principios para la guía del desarrollo de software educativo en la UCI en el Fórum de Ciencia y Técnica de junio 2007 y Universidad 2008\n    - Aprendiendo R desde el Statgraphics en RELME25, Camagüey"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Español",
+      "description": "nativo"
+    },
+    {
+      "name": "Inglés",
+      "description": "profesional"
+    }
+  ]
+}

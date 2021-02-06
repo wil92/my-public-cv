@@ -13,217 +13,200 @@ $grey1: #9b9b9b;
     font-weight: normal;
     font-style: normal;
   }
+
+  @media print {
+    .new-page {
+      page-break-after: always;
+    }
+  }
+
   //noinspection CssNoGenericFontName,CssInvalidPropertyValue
   font-family: 'Lato Light';
 
-  .page {
-    width: 100vw;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: row;
-    overflow-x: hidden;
+  min-height: 100vh;
+  display: block;
+  overflow-x: hidden;
+  padding: $padding;
 
-    .left {
-      width: 30%;
-      min-height: calc(100vh - 40px);
-      padding-top: $padding;
-      padding-left: $padding;
-      padding-right: $padding;
+  .left {
+    width: 30%;
+    padding: $padding;
+    margin-left: -$padding;
+    margin-top: -$padding;
 
-      background-color: $primary;
+    background-color: $primary;
 
-      .avatar-container {
+    .avatar-container {
+      min-width: 100%;
+      position: relative;
+
+      .avatar {
+        max-width: 100%;
         min-width: 100%;
         position: relative;
+        border: 3px solid $white;
+      }
 
-        .avatar {
-          max-width: 100%;
-          min-width: 100%;
-          position: relative;
-          border: 3px solid $white;
-        }
+      .back-rectangle {
+        width: 100vw;
+        height: 50%;
+        background-color: #385371;
+        position: absolute;
+        top: 50%;
+        left: -35px;
+        text-align: right;
+        transform: translateY(-50%);
 
-        .back-rectangle {
-          width: 650%;
-          height: 50%;
-          background-color: #385371;
+        .name-container {
           position: absolute;
-          top: 50%;
-          left: -25%;
-          transform: translateY(-50%);
-        }
-      }
+          color: $white;
+          top: 0;
+          width: 100%;
+          height: 100%;
 
-      .personal-data {
-        color: $white;
-        display: flex;
-        margin: 10px 0;
-        font-weight: bold;
-
-        .icon {
-          margin-right: 15px;
-          color: $accent;
-        }
-
-        span {
-          display: inherit;
-        }
-
-        .language {
-          text-transform: capitalize;
-        }
-      }
-
-      .title {
-        text-transform: uppercase;
-        color: $white;
-      }
-
-      .text {
-        color: $white;
-      }
-
-      .social {
-        display: flex;
-        color: $white;
-        margin-bottom: 10px;
-
-        .icon {
-          margin-right: 15px;
-          font-size: 20px;
-        }
-
-        .container {
-          display: flex;
-          flex-direction: column;
-
-          .name {
-            text-transform: capitalize;
-            font-weight: bold;
+          h3 {
+            margin: 10px 10px;
           }
 
-          span,a {
-            display: inherit;
-            color: $white;
+          .name {
+            top: 50%;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            margin: 0 10px;
           }
         }
       }
     }
 
-    .right {
-      width: 70%;
-      padding-top: $padding;
-      padding-left: $padding;
-      padding-right: $padding;
+    .title {
+      text-transform: uppercase;
+      color: $white;
+    }
 
-      .avatar-container {
-        min-width: 100%;
-        position: relative;
+    .text {
+      color: $white;
+    }
 
-        .name-container {
-          position: absolute;
-          background-color: $white;
-          top: 0;
-          width: 100%;
-          height: 100%;
+    .social {
+      display: flex;
+      color: $white;
+      margin-bottom: 10px;
 
-          .sub-container {
-            position: initial;
-
-            .name {
-              position: absolute;
-              transform: translateY(-50%);
-              top: 50%;
-              font-size: 35px;
-              text-transform: uppercase;
-              margin: 0 10px;
-            }
-          }
-        }
-
-        .avatar {
-          max-width: 43%;
-          min-width: 43%;
-          visibility: hidden;
-          position: relative;
-        }
+      .icon {
+        margin-right: 15px;
+        font-size: 20px;
       }
 
-      .title {
-        background-color: #f8f8f8;
-        text-transform: uppercase;
-        color: $grey1;
-        position: relative;
-        display: inline-block;
-        padding: 5px 30px 5px 15px;
-        font-size: 15px;
-        margin: 5px 0;
-
-        &::before {
-          width: 5px;
-          height: 100%;
-          left: 0;
-          top: 0;
-          position: absolute;
-          background-color: $accent;
-          content: '';
-        }
-      }
-
-      table {
-        tr {
-          .first {
-            width: 20%;
-            vertical-align: initial;
-            color: $grey1;
-
-            span {
-              font-weight: bold;
-              color: $black;
-            }
-          }
-
-          .second {
-            width: 80%;
-            vertical-align: initial;
-
-            ::ng-deep p {
-              margin: 0;
-            }
-
-            ::ng-deep ul {
-              margin: 0;
-            }
-          }
-        }
-      }
-
-      .skills {
+      .container {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        margin-right: -10px;
-        margin-left: -10px;
+        flex-direction: column;
 
-        .skill {
-          width: 50%;
-          padding: 5px 0;
+        .name {
+          text-transform: capitalize;
+          font-weight: bold;
+        }
 
-          span {
-            font-weight: bold;
-            margin: 0 10px;
-          }
+        span, a {
+          display: inherit;
+          color: $white;
+        }
+      }
+    }
+  }
 
-          .bar {
-            margin: 0 10px;
-            height: 5px;
-            background-color: #e9e9e9;
+  .personal-data {
+    color: $black;
+    display: flex;
+    margin: 10px 0;
+    font-weight: bold;
 
-            .progress {
-              height: 5px;
-              background-color: #365373;
-            }
-          }
+    .icon {
+      margin-right: 15px;
+      color: $accent;
+    }
+
+    span {
+      display: inherit;
+    }
+
+    .language {
+      text-transform: capitalize;
+    }
+  }
+
+  .title {
+    background-color: #f8f8f8;
+    text-transform: uppercase;
+    color: $grey1;
+    position: relative;
+    display: inline-block;
+    padding: 5px 30px 5px 15px;
+    font-size: 1.3rem;
+    margin: 5px 0;
+
+    &::before {
+      width: 5px;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+      background-color: $accent;
+      content: '';
+    }
+  }
+
+  table {
+    tr {
+      .first {
+        width: 30%;
+        vertical-align: initial;
+        color: $grey1;
+
+        span {
+          font-weight: bold;
+          color: $black;
+        }
+      }
+
+      .second {
+        width: 80%;
+        vertical-align: initial;
+
+        ::ng-deep p {
+          margin: 0;
+        }
+
+        ::ng-deep ul {
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .skills {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -10px;
+    margin-left: -10px;
+
+    .skill {
+      width: 50%;
+      padding: 5px 0;
+
+      span {
+        font-weight: bold;
+        margin: 0 10px;
+      }
+
+      .bar {
+        margin: 0 10px;
+        height: 5px;
+        background-color: #e9e9e9;
+
+        .progress {
+          height: 5px;
+          background-color: #365373;
         }
       }
     }

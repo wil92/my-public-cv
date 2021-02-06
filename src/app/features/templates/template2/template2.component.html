@@ -1,4 +1,8 @@
 <div class="page">
+  <button class="print-button"
+          (click)="printAction()">
+    <fa-icon [icon]="printIcon"></fa-icon>
+  </button>
   <div class="left">
     <div class="avatar-container">
       <img class="avatar"
@@ -38,7 +42,8 @@
     <div class="personal-data"
          *ngIf="curriculum?.languages">
       <span class="data-title">Language(s):</span>
-      <div class="sub-data"><span *ngFor="let language of curriculum?.languages">{{language.name}}: {{language.description}}</span></div>
+      <div class="sub-data"><span *ngFor="let language of curriculum?.languages">{{language.name}}
+        : {{language.description}}</span></div>
     </div>
     <div class="title"
          *ngIf="curriculum?.profile">
@@ -87,8 +92,11 @@
     <div *ngIf="curriculum?.education">
       <table>
         <tr *ngFor="let edu of curriculum.education">
-          <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}-{{edu.endDate.getFullYear() || ''}}</td>
-          <td class="second"><markdown [data]="edu.entity"></markdown></td>
+          <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
+            -{{edu.endDate.getFullYear() || ''}}</td>
+          <td class="second">
+            <markdown [data]="edu.entity"></markdown>
+          </td>
         </tr>
       </table>
     </div>
@@ -102,8 +110,11 @@
     <div *ngIf="curriculum?.experience">
       <table>
         <tr *ngFor="let job of curriculum.experience">
-          <td class="first"><span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
-          <td class="second"><markdown [data]="job.description"></markdown></td>
+          <td class="first">
+            <span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
+          <td class="second">
+            <markdown [data]="job.description"></markdown>
+          </td>
         </tr>
       </table>
     </div>

@@ -7,6 +7,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
+import {WINDOW, windowFactory} from './core/config';
 
 
 @NgModule({
@@ -19,6 +20,9 @@ import {AppRoutingModule} from './app-routing.module';
     AppRoutingModule,
     MarkdownModule.forRoot(),
     FontAwesomeModule
+  ],
+  providers: [
+    { provide: WINDOW, useFactory: windowFactory }
   ],
   bootstrap: [AppComponent]
 })

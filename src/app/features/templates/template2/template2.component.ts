@@ -1,8 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+
+import {faPrint} from '@fortawesome/free-solid-svg-icons';
 
 import {Curriculum} from '../../../core/models';
 import {endDateToShow} from '../../../shared/utils';
+import {WINDOW} from '../../../core/config';
 
 @Component({
   selector: 'app-template2',
@@ -11,11 +14,14 @@ import {endDateToShow} from '../../../shared/utils';
 })
 export class Template2Component implements OnInit {
 
+  printIcon = faPrint;
+
   curriculum: Curriculum;
 
   tilesCount = 10;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              @Inject(WINDOW) private window: Window) {
     route.data.subscribe((data) => {
       this.curriculum = data.curriculum;
     });
@@ -35,5 +41,9 @@ export class Template2Component implements OnInit {
 
   endDate(startDate: Date, endDate: Date) {
     return endDateToShow(startDate, endDate);
+  }
+
+  printAction() {
+    this.window.print();
   }
 }

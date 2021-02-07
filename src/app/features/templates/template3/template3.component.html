@@ -1,127 +1,132 @@
-<div class="page">
-  <button class="print-button"
-          (click)="printAction()">
-    <fa-icon [icon]="printIcon"></fa-icon>
-  </button>
-  <div fxLayout="row" class="cv-banner">
-    <div fxLayout="column"
-         fxFlex="70">
-      <h1>{{curriculum?.name}}</h1>
-      <h2>{{curriculum?.personalDescription}}</h2>
-    </div>
-    <div class="image-container">
-      <img class="avatar"
-           [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
-           alt="avatar">
-    </div>
-  </div>
-  <div class="cv-bottom-banner">
-    <div fxLayout="row wrap"
-         class="cv-bottom-banner-inner">
-      <div class="personal-data"
-           fxFlex="45"
-           fxLayout="row"
-           *ngIf="curriculum?.phoneNumbers">
-        <span class="data-title">Phone(s):</span>
-        <div class="sub-data"><span *ngFor="let number of curriculum?.phoneNumbers">{{number}}</span></div>
+<div class="main-page"
+     fxLayoutAlign="center start"
+     fxLayout="row">
+  <div class="page"
+       fxFlex="80">
+    <button class="print-button"
+            (click)="printAction()">
+      <fa-icon [icon]="printIcon"></fa-icon>
+    </button>
+    <div fxLayout="row" class="cv-banner">
+      <div fxLayout="column"
+           fxFlex="70">
+        <h1>{{curriculum?.name}}</h1>
+        <h2>{{curriculum?.personalDescription}}</h2>
       </div>
-      <div class="personal-data"
-           fxFlex="45"
-           fxLayout="row"
-           *ngIf="curriculum?.emails">
-        <span class="data-title">Email(s):</span>
-        <div class="sub-data"><span *ngFor="let email of curriculum?.emails">{{email}}</span></div>
+      <div class="image-container">
+        <img class="avatar"
+             [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
+             alt="avatar">
       </div>
-      <ng-container *ngIf="curriculum?.social">
-        <div fxFlex="45"
+    </div>
+    <div class="cv-bottom-banner">
+      <div fxLayout="row wrap"
+           class="cv-bottom-banner-inner">
+        <div class="personal-data"
+             fxFlex="45"
              fxLayout="row"
-             *ngFor="let social of curriculum.social"
-             class="social personal-data">
-          <span class="data-title">{{social.name}}: </span>
-          <div class="container sub-data">
-            <a [href]="social.url">{{social.identity}}</a>
+             *ngIf="curriculum?.phoneNumbers">
+          <span class="data-title">Phone(s):</span>
+          <div class="sub-data"><span *ngFor="let number of curriculum?.phoneNumbers">{{number}}</span></div>
+        </div>
+        <div class="personal-data"
+             fxFlex="45"
+             fxLayout="row"
+             *ngIf="curriculum?.emails">
+          <span class="data-title">Email(s):</span>
+          <div class="sub-data"><span *ngFor="let email of curriculum?.emails">{{email}}</span></div>
+        </div>
+        <ng-container *ngIf="curriculum?.social">
+          <div fxFlex="45"
+               fxLayout="row"
+               *ngFor="let social of curriculum.social"
+               class="social personal-data">
+            <span class="data-title">{{social.name}}: </span>
+            <div class="container sub-data">
+              <a [href]="social.url">{{social.identity}}</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+    <div class="title cv-margin"
+         *ngIf="curriculum?.profile">
+      <h2>About Me</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <markdown *ngIf="curriculum?.profile"
+              class="text cv-margin"
+              [data]="curriculum?.profile"></markdown>
+    <div class="title cv-margin"
+         *ngIf="curriculum?.skills">
+      <h2>Skills</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="skills cv-margin"
+         fxLayout="row wrap"
+         fxLayoutAlign="center center"
+         *ngIf="curriculum?.skills">
+      <div *ngFor="let skill of curriculum?.skills"
+           fxFlex="33"
+           class="skill">
+        {{skill?.name}}
+        <div class="progress">
+          <div class="bar-container">
+            <div class="bar"
+                 *ngFor="let ignore of createArray(tilesCount)"></div>
+          </div>
+          <div class="tile-container">
+            <div class="tile"
+                 *ngFor="let ignore of createArray(progressTilesCount(skill.level))"></div>
           </div>
         </div>
-      </ng-container>
-    </div>
-  </div>
-  <div class="title cv-margin"
-       *ngIf="curriculum?.profile">
-    <h2>About Me</h2>
-    <div class="line-container">
-      <div class="line"></div>
-    </div>
-  </div>
-  <markdown *ngIf="curriculum?.profile"
-            class="text cv-margin"
-            [data]="curriculum?.profile"></markdown>
-  <div class="title cv-margin"
-       *ngIf="curriculum?.skills">
-    <h2>Skills</h2>
-    <div class="line-container">
-      <div class="line"></div>
-    </div>
-  </div>
-  <div class="skills cv-margin"
-       fxLayout="row wrap"
-       fxLayoutAlign="center center"
-       *ngIf="curriculum?.skills">
-    <div *ngFor="let skill of curriculum?.skills"
-         fxFlex="33"
-         class="skill">
-      {{skill?.name}}
-      <div class="progress">
-        <div class="bar-container">
-          <div class="bar"
-               *ngFor="let ignore of createArray(tilesCount)"></div>
-        </div>
-        <div class="tile-container">
-          <div class="tile"
-               *ngFor="let ignore of createArray(progressTilesCount(skill.level))"></div>
-        </div>
       </div>
     </div>
-  </div>
-  <div class="title cv-margin"
-       *ngIf="curriculum?.education">
-    <h2>Education</h2>
-    <div class="line-container">
-      <div class="line"></div>
+    <div class="title cv-margin"
+         *ngIf="curriculum?.education">
+      <h2>Education</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
     </div>
-  </div>
-  <div *ngIf="curriculum?.education"
-       class="cv-margin">
-    <table>
-      <tr *ngFor="let edu of curriculum.education"
-          fxLayout="row">
-        <td class="date"
-            fxFlex="20"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
-          -{{edu.endDate.getFullYear() || ''}}</td>
-        <td>
-          <markdown [data]="edu.entity"></markdown>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="title new-page cv-margin"
-       *ngIf="curriculum?.experience">
-    <h2>Work History</h2>
-    <div class="line-container">
-      <div class="line"></div>
+    <div *ngIf="curriculum?.education"
+         class="cv-margin">
+      <table>
+        <tr *ngFor="let edu of curriculum.education"
+            fxLayout="row">
+          <td class="date"
+              fxFlex="20"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
+            -{{edu.endDate.getFullYear() || ''}}</td>
+          <td>
+            <markdown [data]="edu.entity"></markdown>
+          </td>
+        </tr>
+      </table>
     </div>
+    <div class="title new-page cv-margin"
+         *ngIf="curriculum?.experience">
+      <h2>Work History</h2>
+      <div class="line-container">
+        <div class="line"></div>
+      </div>
+    </div>
+    <ng-container *ngIf="curriculum?.experience">
+      <table class="cv-margin">
+        <tr *ngFor="let job of curriculum.experience"
+            [ngClass]="{'new-page': job?.breakPage}"
+            fxLayout="row">
+          <td fxFlex="20"
+              class="date">
+            <span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
+          <td fxFlex="80">
+            <markdown [data]="job.description"></markdown>
+          </td>
+        </tr>
+      </table>
+    </ng-container>
   </div>
-  <ng-container *ngIf="curriculum?.experience">
-    <table class="cv-margin">
-      <tr *ngFor="let job of curriculum.experience"
-          [ngClass]="{'new-page': job?.breakPage}"
-          fxLayout="row">
-        <td fxFlex="20"
-            class="date">
-          <span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
-        <td fxFlex="80">
-          <markdown [data]="job.description"></markdown>
-        </td>
-      </tr>
-    </table>
-  </ng-container>
 </div>

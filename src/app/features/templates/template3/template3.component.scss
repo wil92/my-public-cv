@@ -23,15 +23,8 @@ $black: #000;
   .page {
     width: 100vw;
     min-height: 100vh;
-    display: flex;
-    flex-direction: row;
     overflow-x: hidden;
-
-    @media print {
-      .new-page {
-        page-break-after: always;
-      }
-    }
+    position: relative;
 
     .print-button {
       position: fixed;
@@ -54,6 +47,12 @@ $black: #000;
     @media print {
       .print-button {
         display: none;
+      }
+    }
+
+    @media print {
+      .new-page {
+        break-before: page;
       }
     }
 
@@ -167,8 +166,18 @@ $black: #000;
       }
     }
 
+    table {
+      ::ng-deep h2 {
+        margin: 0.83rem 0 !important;
+      }
+      .date {
+        margin: 0.83rem 0 ;
+      }
+    }
+
     .cv-margin {
       margin: 10px 60px;
+      display: block;
     }
   }
 }

@@ -1,5 +1,4 @@
-<div class="page"
-     fxLayout="column">
+<div class="page">
   <button class="print-button"
           (click)="printAction()">
     <fa-icon [icon]="printIcon"></fa-icon>
@@ -91,7 +90,7 @@
     </div>
   </div>
   <div *ngIf="curriculum?.education"
-       class="new-page cv-margin">
+       class="cv-margin">
     <table>
       <tr *ngFor="let edu of curriculum.education">
         <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
@@ -109,16 +108,18 @@
       <div class="line"></div>
     </div>
   </div>
-  <div *ngIf="curriculum?.experience"
-       class="cv-margin">
-    <table>
-      <tr *ngFor="let job of curriculum.experience">
-        <td class="first">
+  <ng-container *ngIf="curriculum?.experience">
+    <table class="cv-margin">
+      <tr *ngFor="let job of curriculum.experience"
+          [ngClass]="{'new-page': job?.breakPage}"
+          fxLayout="row">
+        <td fxFlex="20"
+            class="date">
           <span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
-        <td class="second">
+        <td fxFlex="80">
           <markdown [data]="job.description"></markdown>
         </td>
       </tr>
     </table>
-  </div>
+  </ng-container>
 </div>

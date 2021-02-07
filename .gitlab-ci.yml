@@ -32,7 +32,7 @@ stages:
     - chmod 600 ~/.ssh/id_rsa
     - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
     - shopt -s expand_aliases
-    - alias ex='ssh guille@angemy.com'
+    - alias ex='ssh guille@guilledev.com'
 
 # Dependencies
 dependencies:
@@ -65,11 +65,11 @@ deploy:
     - build:prod
   script:
     - ex "rm -rf mycv/release/*"
-    - rsync -a ./.env guille@angemy.com:~/mycv/release/
-    - rsync -a ./dist guille@angemy.com:~/mycv/release/
-    - rsync -a ./nginx.conf guille@angemy.com:~/mycv/release/
-    - rsync -a ./Dockerfile guille@angemy.com:~/mycv/release/
-    - rsync -a ./docker-compose.yml guille@angemy.com:~/mycv/release/
+    - rsync -a ./.env guille@guilledev.com:~/mycv/release/
+    - rsync -a ./dist guille@guilledev.com:~/mycv/release/
+    - rsync -a ./nginx.conf guille@guilledev.com:~/mycv/release/
+    - rsync -a ./Dockerfile guille@guilledev.com:~/mycv/release/
+    - rsync -a ./docker-compose.yml guille@guilledev.com:~/mycv/release/
     - ex "cd mycv/release/ && docker-compose --project-name=mycv-prod build"
     - ex "cd mycv/release/ && docker-compose --project-name=mycv-prod down"
     - ex "cd mycv/release/ && docker-compose --project-name=mycv-prod up -d"

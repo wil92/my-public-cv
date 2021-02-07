@@ -5,11 +5,11 @@
   </button>
   <div fxLayout="row" class="cv-banner">
     <div fxLayout="column"
-         fxFlex="65">
+         fxFlex="70">
       <h1>{{curriculum?.name}}</h1>
       <h2>{{curriculum?.personalDescription}}</h2>
     </div>
-    <div fxFlex="35" class="image-container">
+    <div class="image-container">
       <img class="avatar"
            [src]="curriculum?.personUrl || '/assets/avatar.jpeg'"
            alt="avatar">
@@ -92,10 +92,12 @@
   <div *ngIf="curriculum?.education"
        class="cv-margin">
     <table>
-      <tr *ngFor="let edu of curriculum.education">
-        <td class="first"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
+      <tr *ngFor="let edu of curriculum.education"
+          fxLayout="row">
+        <td class="date"
+            fxFlex="20"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
           -{{edu.endDate.getFullYear() || ''}}</td>
-        <td class="second">
+        <td>
           <markdown [data]="edu.entity"></markdown>
         </td>
       </tr>

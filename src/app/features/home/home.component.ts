@@ -80,4 +80,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.actionHeight = actions[FIRST_CHILD].clientWidth;
   }
 
+  getDate() {
+    return new Date().getFullYear();
+  }
 }

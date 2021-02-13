@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FlexModule} from '@angular/flex-layout';
+import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
@@ -15,7 +15,8 @@ import {HomeComponent} from './home.component';
     CommonModule,
     HomeRoutingModule,
     FlexModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FlexLayoutModule
   ]
 })
 export class HomeModule { }

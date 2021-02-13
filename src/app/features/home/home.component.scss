@@ -11,6 +11,14 @@ $actions-color: #434355;
 :host {
   background-color: $secondary;
 
+  .light-container {
+    background-color: $primary;
+  }
+
+  .dark-container {
+    background-color: $primary2;
+  }
+
   h3 {
     color: $text-color2;
     text-transform: capitalize;
@@ -58,8 +66,6 @@ $actions-color: #434355;
     }
 
     .container1 {
-      background-color: $primary;
-
       .left {
         position: relative;
 
@@ -89,7 +95,6 @@ $actions-color: #434355;
     }
 
     .container2 {
-      background-color: $primary2;
       padding-top: 80px;
 
       .actions-container {
@@ -111,11 +116,6 @@ $actions-color: #434355;
           }
         }
       }
-    }
-
-    .container3 {
-      background-color: $primary;
-      height: 100px;
     }
   }
 }

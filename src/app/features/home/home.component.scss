@@ -115,6 +115,10 @@
       .actions-container {
         margin-top: 50px;
 
+        @media screen and (max-width: 598px) {
+          font-size: 1.5rem;
+        }
+
         .action {
           background-color: $actions-color;
           color: $text-color;

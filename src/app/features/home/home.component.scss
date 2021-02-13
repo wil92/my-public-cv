@@ -9,6 +9,7 @@ $text-color2: #8a8d9c;
 $actions-color: #434355;
 
 :host {
+  font-family: "Roboto";
   background-color: $secondary;
 
   .light-container {
@@ -85,12 +86,45 @@ $actions-color: #434355;
               font-size: 1.2rem;
               padding: 0 5px;
             }
+
+            &:hover {
+              color: $highlight;
+            }
           }
         }
       }
 
       .info {
         z-index: 10;
+
+        .menu {
+          margin-bottom: 50px;
+
+          a {
+            flex-direction: column;
+            box-sizing: border-box;
+            display: flex;
+            place-content: center;
+            align-items: center;
+            color: $text-color2;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-right: 20px;
+
+            &.active, &:hover {
+              color: $text-color;
+
+              &:after {
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                background-color: $highlight;
+              }
+            }
+          }
+        }
       }
     }
 

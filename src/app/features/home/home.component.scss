@@ -1,9 +1,12 @@
 $primary: #323544;
+$primary2: #252535;
 $secondary: #cdd5e8;
 
 $highlight: #ffad28;
 $text-color: #ecebef;
 $text-color2: #8a8d9c;
+
+$actions-color: #434355;
 
 :host {
   background-color: $secondary;
@@ -12,8 +15,12 @@ $text-color2: #8a8d9c;
     color: $text-color2;
     text-transform: capitalize;
     font-size: .8rem;
-    display: inline;
     position: relative;
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: center flex-start;
+    align-items: center;
 
     margin: 0;
 
@@ -27,6 +34,22 @@ $text-color2: #8a8d9c;
     }
   }
 
+  h2 {
+    display: inline;
+    margin: 10px 0;
+    color: $text-color;
+  }
+
+  h1 {
+    font-size: 3rem;
+    color: $text-color;
+  }
+
+  p {
+    color: $text-color2;
+    font-size: .8rem;
+  }
+
   .content {
     margin-top: 40px;
 
@@ -36,7 +59,6 @@ $text-color2: #8a8d9c;
 
     .container1 {
       background-color: $primary;
-      color: $text-color;
 
       .left {
         position: relative;
@@ -50,10 +72,6 @@ $text-color2: #8a8d9c;
           position: absolute;
           top: 0;
 
-          h1 {
-            font-size: 3rem;
-          }
-
           a {
             color: $text-color;
 
@@ -66,15 +84,38 @@ $text-color2: #8a8d9c;
       }
 
       .info {
-        h2 {
-          display: inline;
-          margin: 10px 0;
-        }
-        p {
-          color: $text-color2;
-          font-size: .8rem;
+        z-index: 10;
+      }
+    }
+
+    .container2 {
+      background-color: $primary2;
+      padding-top: 80px;
+
+      .actions-container {
+        margin-top: 50px;
+
+        .action {
+          background-color: $actions-color;
+          color: $text-color;
+          margin: 0 5px;
+          z-index: 100;
+          text-decoration: none;
+
+          fa-icon {
+            margin-right: 20px;
+          }
+
+          &:hover {
+            background-color: $highlight;
+          }
         }
       }
+    }
+
+    .container3 {
+      background-color: $primary;
+      height: 100px;
     }
   }
 }

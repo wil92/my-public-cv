@@ -2,53 +2,57 @@
      class="content"
      fxLayoutAlign="center top">
   <div fxLayout="column"
-       fxFlex="60">
+       fxFlex.md="100"
+       fxFlex.sm="100"
+       fxFlex.xs="100"
+       fxFlex="80"
+       fxFlex.xl="60">
     <div fxLayout="row"
+         fxLayout.xs="column"
+         fxLayout.sm="column"
          class="container1 container-padding light-container">
+      <cv-menu fxHide.gt-sm="true"></cv-menu>
       <div fxFlex="60"
            fxLayout="column"
            class="left">
-        <img class="image-banner"
-             src="/assets/images/banner-image.png"
-             alt="guille-banner">
         <div class="information"
              fxLayout="column">
           <h1>Guillermo González Jiménez</h1>
-          <div>
+          <div fxLayout.xs="row wrap">
             <ng-container *ngFor="let social of socials">
               <a [href]="social.url"
+                 fxFlex.xs=""
                  [title]="social.label">
                 <fa-icon [icon]="social.icon"></fa-icon>
               </a>
             </ng-container>
           </div>
         </div>
+        <img class="image-banner"
+             src="/assets/images/banner-image.png"
+             alt="guille-banner">
       </div>
-      <div fxFlex="40"
-           fxLayout="column"
-           class="info">
-        <div class="menu"
-             fxLayout="row">
-          <a href="#" class="active">Home</a>
-          <a [routerLink]="'cv-print'">CV</a>
-        </div>
-        <h3>introduction</h3>
-        <h2>Full stack developer</h2>
-        <p>Guillermo, aka 'Guille' I'm an experienced software engineer with more than 5 years experience in
-          technologies
-          like Node.js, Python, Java and DevOps tools like Docker and GitLab CI/CD.</p>
-      </div>
+      <cv-menu fxFlex="40"
+               fxShow.xs="false"
+               fxShow.sm="false"
+               fxHide.gt-md="false"></cv-menu>
     </div>
     <div class="container2 container-padding dark-container"
          fxLayout="column">
-      <div fxLayout="row">
+      <div fxLayout="row"
+           fxLayout.xs="column"
+           fxLayout.sm="column">
         <div fxLayout="column"
+             fxFlex.sm="100"
+             fxFlex.xs="100"
              fxFlex="50">
           <h3>Profile</h3>
           <h2>How contact me</h2>
           <p>You can email me, or call me if you are interesting on my profile</p>
         </div>
-        <div fxFlex="50">
+        <div fxFlex.sm="100"
+             fxFlex.xs="100"
+             fxFlex="50">
           <h2>My experience in the field</h2>
           <p></p>
         </div>
@@ -70,8 +74,7 @@
                      [icon]="action.icon"></fa-icon>
             <h2 fxFlex="70"
                 fxLayoutAlign="start center"
-                [fxShow.xs]="false"
-                [fxShow.sm]="false">{{action.label}}</h2>
+                [fxShow.xs]="false">{{action.label}}</h2>
           </a>
         </ng-container>
       </div>

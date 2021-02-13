@@ -79,6 +79,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   constructor() {
+    import('@fortawesome/free-brands-svg-icons').then(v => v.faTwitter);
   }
 
   ngOnInit(): void {

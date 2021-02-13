@@ -1,12 +1,4 @@
-$primary: #323544;
-$primary2: #252535;
-$secondary: #cdd5e8;
-
-$highlight: #ffad28;
-$text-color: #ecebef;
-$text-color2: #8a8d9c;
-
-$actions-color: #434355;
+@import "./src/app/features/home/variables";
 
 :host {
   font-family: "Roboto";
@@ -20,7 +12,7 @@ $actions-color: #434355;
     background-color: $primary2;
   }
 
-  h3 {
+  ::ng-deep h3 {
     color: $text-color2;
     text-transform: capitalize;
     font-size: .8rem;
@@ -43,20 +35,26 @@ $actions-color: #434355;
     }
   }
 
-  h2 {
+  ::ng-deep h2 {
     display: inline;
     margin: 10px 0;
     color: $text-color;
   }
 
-  h1 {
+  ::ng-deep h1 {
     font-size: 3rem;
     color: $text-color;
   }
 
-  p {
+  ::ng-deep p {
     color: $text-color2;
-    font-size: .8rem;
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 1280px) {
+    .content {
+      margin-top: 0 !important;
+    }
   }
 
   .content {
@@ -67,8 +65,24 @@ $actions-color: #434355;
     }
 
     .container1 {
+      overflow: hidden;
+
       .left {
         position: relative;
+
+        @media screen and (max-width: 598px) {
+          .image-banner {
+            padding-left: 0 !important;
+          }
+
+          .information {
+            position: inherit !important;
+
+            fa-icon {
+              font-size: 2rem !important;
+            }
+          }
+        }
 
         .image-banner {
           width: 100%;
@@ -83,45 +97,12 @@ $actions-color: #434355;
             color: $text-color;
 
             fa-icon {
-              font-size: 1.2rem;
+              font-size: 1.5rem;
               padding: 0 5px;
             }
 
             &:hover {
               color: $highlight;
-            }
-          }
-        }
-      }
-
-      .info {
-        z-index: 10;
-
-        .menu {
-          margin-bottom: 50px;
-
-          a {
-            flex-direction: column;
-            box-sizing: border-box;
-            display: flex;
-            place-content: center;
-            align-items: center;
-            color: $text-color2;
-            text-decoration: none;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin-right: 20px;
-
-            &.active, &:hover {
-              color: $text-color;
-
-              &:after {
-                content: '';
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-                background-color: $highlight;
-              }
             }
           }
         }

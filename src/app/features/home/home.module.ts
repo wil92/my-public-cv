@@ -1,15 +1,17 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {FlexLayoutModule, FlexModule} from '@angular/flex-layout';
 
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home.component';
+import {MenuComponent} from './menu/menu.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    MenuComponent
   ],
   imports: [
     CommonModule,
@@ -19,4 +21,5 @@ import {HomeComponent} from './home.component';
     FlexLayoutModule
   ]
 })
-export class HomeModule { }
+export class HomeModule {
+}

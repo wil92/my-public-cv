@@ -8,6 +8,9 @@ $black: #000;
 
 $background: #dad9dc;
 
+$floating-color: #323544;
+$floating-background: #ffad28;
+
 body {
   background-color: $background !important;
 }
@@ -57,21 +60,25 @@ body {
     box-shadow: 0 5px 10px $black;
     margin: 20px 0;
 
-    .print-button {
+    .floating-buttons {
       position: fixed;
-      border: none;
-      width: 40px;
-      height: 40px;
-      background-color: blue;
-      color: #fff;
-      border-radius: 50%;
-      text-align: center;
       right: 30px;
       top: 30px;
       z-index: 100000;
 
-      &:hover {
-        cursor: pointer;
+      .print-button {
+        border: none;
+        width: 40px;
+        height: 40px;
+        background-color: $floating-background;
+        color: $floating-color;
+        border-radius: 50%;
+        text-align: center;
+        margin-left: 10px;
+
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 

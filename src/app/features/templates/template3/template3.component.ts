@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
-import {faPrint} from '@fortawesome/free-solid-svg-icons';
+import {faPrint, faHome} from '@fortawesome/free-solid-svg-icons';
 
 import {Curriculum} from '../../../core/models';
 import {endDateToShow} from '../../../shared/utils';
@@ -16,6 +16,7 @@ import {timer} from "rxjs";
 export class Template3Component implements OnInit, AfterViewInit {
 
   printIcon = faPrint;
+  homeIcon = faHome;
 
   curriculum: Curriculum;
 
@@ -32,7 +33,7 @@ export class Template3Component implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.printAction();
+    timer(1000).subscribe(() => this.printAction());
   }
 
   progressTilesCount(percent): number {

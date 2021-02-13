@@ -6,10 +6,16 @@
        fxFlex.md="100"
        fxFlex.sm="100"
        fxFlex="80">
-    <button class="print-button"
-            (click)="printAction()">
-      <fa-icon [icon]="printIcon"></fa-icon>
-    </button>
+    <div class="floating-buttons">
+      <button class="print-button"
+              [routerLink]="'/'">
+        <fa-icon [icon]="homeIcon"></fa-icon>
+      </button>
+      <button class="print-button"
+              (click)="printAction()">
+        <fa-icon [icon]="printIcon"></fa-icon>
+      </button>
+    </div>
     <div fxLayout="row" class="cv-banner">
       <div fxLayout="column"
            fxFlex="80">

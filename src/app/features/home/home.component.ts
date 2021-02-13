@@ -13,6 +13,7 @@ import {
   faGraduationCap,
   faMicrophone
 } from '@fortawesome/free-solid-svg-icons';
+import {timer} from "rxjs";
 
 @Component({
   selector: 'cv-home',
@@ -20,10 +21,6 @@ import {
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-
-  podcastIcon = faMicrophone;
-  laptopIcon = faLaptop;
-  educationIcon = faGraduationCap;
 
   @ViewChild('actions_container')
   actionsContainer: ElementRef;
@@ -58,8 +55,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   ];
 
+  actions = [
+    {
+      url: '#',
+      icon: faLaptop,
+      label: 'Public project'
+    },
+    {
+      url: '#',
+      icon: faMicrophone,
+      label: 'Podcast'
+    },
+    {
+      url: '#',
+      icon: faGraduationCap,
+      label: 'Education'
+    }
+  ];
+
   @HostListener('window:resize', ['$event'])
-  onResize(event) {
+  onResize() {
     this.updateActionButtonsSize();
   }
 
@@ -70,14 +85,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.updateActionButtonsSize()
+    this.updateActionButtonsSize();
   }
 
   updateActionButtonsSize() {
     const FIRST_CHILD = 0;
-    const actions = this.actionsContainer.nativeElement.children;
+    const actions = this.actionsContainer?.nativeElement?.children;
     // noinspection JSSuspiciousNameCombination
-    this.actionHeight = actions[FIRST_CHILD].clientWidth;
+    this.actionHeight = actions?.length ? actions[FIRST_CHILD]?.clientWidth : this.actionHeight;
   }
 
   getDate() {

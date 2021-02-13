@@ -52,39 +52,23 @@
            fxLayout="row"
            #actions_container
            fxLayoutAlign="center center">
-        <a fxFlex="30"
-           href="#"
-           fxLayout="row"
-           [style.height.px]="actionHeight"
-           [style.marginBottom.px]="-actionHeight / 2"
-           fxLayoutAlign="center center"
-           class="action">
-          <fa-icon [icon]="podcastIcon"></fa-icon>
-          <h2 [fxShow.xs]="false"
-              [fxShow.sm]="false">Podcast</h2>
-        </a>
-        <a fxFlex="30"
-           href="#"
-           fxLayout="row"
-           [style.height.px]="actionHeight"
-           [style.marginBottom.px]="-actionHeight / 2"
-           fxLayoutAlign="center center"
-           class="action">
-          <fa-icon [icon]="laptopIcon"></fa-icon>
-          <h2 [fxShow.xs]="false"
-              [fxShow.sm]="false">Public project</h2>
-        </a>
-        <a fxFlex="30"
-           href="#"
-           fxLayout="row"
-           [style.height.px]="actionHeight"
-           [style.marginBottom.px]="-actionHeight / 2"
-           fxLayoutAlign="center center"
-           class="action">
-          <fa-icon [icon]="educationIcon"></fa-icon>
-          <h2 [fxShow.xs]="false"
-              [fxShow.sm]="false">Education</h2>
-        </a>
+        <ng-container *ngFor="let action of actions">
+          <a fxFlex="30"
+             [href]="action.url"
+             fxLayout="row"
+             [style.height.px]="actionHeight"
+             [style.marginBottom.px]="-actionHeight / 2"
+             fxLayoutAlign="center center"
+             class="action">
+            <fa-icon fxFlex="30"
+                     fxLayoutAlign="center center"
+                     [icon]="action.icon"></fa-icon>
+            <h2 fxFlex="70"
+                fxLayoutAlign="start center"
+                [fxShow.xs]="false"
+                [fxShow.sm]="false">{{action.label}}</h2>
+          </a>
+        </ng-container>
       </div>
     </div>
     <div [style.height.px]="actionHeight / 2"

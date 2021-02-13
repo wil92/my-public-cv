@@ -12,7 +12,7 @@
     </button>
     <div fxLayout="row" class="cv-banner">
       <div fxLayout="column"
-           fxFlex="70">
+           fxFlex="80">
         <h1>{{curriculum?.name}}</h1>
         <h2>{{curriculum?.personalDescription}}</h2>
       </div>
@@ -26,21 +26,21 @@
       <div fxLayout="row wrap"
            class="cv-bottom-banner-inner">
         <div class="personal-data"
-             fxFlex="45"
+             fxFlex="43"
              fxLayout="row"
              *ngIf="curriculum?.phoneNumbers">
           <span class="data-title">Phone(s):</span>
           <div class="sub-data"><span *ngFor="let number of curriculum?.phoneNumbers">{{number}}</span></div>
         </div>
         <div class="personal-data"
-             fxFlex="45"
+             fxFlex="43"
              fxLayout="row"
              *ngIf="curriculum?.emails">
           <span class="data-title">Email(s):</span>
           <div class="sub-data"><span *ngFor="let email of curriculum?.emails">{{email}}</span></div>
         </div>
         <ng-container *ngIf="curriculum?.social">
-          <div fxFlex="45"
+          <div fxFlex="43"
                fxLayout="row"
                *ngFor="let social of curriculum.social"
                class="social personal-data">

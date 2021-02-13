@@ -7,8 +7,9 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import {WINDOW, windowFactory} from './core/config';
-
+import {ENVIRONMENT, WINDOW, windowFactory} from './core/config';
+import {HomeComponent} from './features/home/home.component';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {WINDOW, windowFactory} from './core/config';
     FontAwesomeModule
   ],
   providers: [
-    { provide: WINDOW, useFactory: windowFactory }
+    {provide: WINDOW, useFactory: windowFactory},
+    {provide: ENVIRONMENT, useValue: environment}
   ],
   bootstrap: [AppComponent]
 })

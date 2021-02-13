@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "contentful": "^8.1.7",
     "core-js": "^2.6.10",
     "messageformat": "^2.3.0",
     "ngx-markdown": "^8.2.1",

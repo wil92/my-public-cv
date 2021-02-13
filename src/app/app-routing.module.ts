@@ -7,6 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: AppComponent,
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule)
+  },
+  {
+    path: 'cv-print',
+    component: AppComponent,
     loadChildren: () => import('./features/templates').then(m => m.TemplatesModule)
   },
   {

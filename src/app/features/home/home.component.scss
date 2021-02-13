@@ -1,0 +1,80 @@
+$primary: #323544;
+$secondary: #cdd5e8;
+
+$highlight: #ffad28;
+$text-color: #ecebef;
+$text-color2: #8a8d9c;
+
+:host {
+  background-color: $secondary;
+
+  h3 {
+    color: $text-color2;
+    text-transform: capitalize;
+    font-size: .8rem;
+    display: inline;
+    position: relative;
+
+    margin: 0;
+
+    &:before {
+      content: '';
+      background-color: $text-color2;
+      width: 7px;
+      height: 2px;
+      margin: 0 5px;
+      display: inline-block;
+    }
+  }
+
+  .content {
+    margin-top: 40px;
+
+    .container-padding {
+      padding: 30px 10% 0 10%;
+    }
+
+    .container1 {
+      background-color: $primary;
+      color: $text-color;
+
+      .left {
+        position: relative;
+
+        .image-banner {
+          width: 100%;
+          padding-left: 60px;
+        }
+
+        .information {
+          position: absolute;
+          top: 0;
+
+          h1 {
+            font-size: 3rem;
+          }
+
+          a {
+            color: $text-color;
+
+            fa-icon {
+              font-size: 1.2rem;
+              padding: 0 5px;
+            }
+          }
+        }
+      }
+
+      .info {
+        h2 {
+          display: inline;
+          margin: 10px 0;
+        }
+        p {
+          color: $text-color2;
+          font-size: .8rem;
+        }
+      }
+    }
+  }
+}

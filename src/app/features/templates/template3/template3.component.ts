@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 import {faPrint} from '@fortawesome/free-solid-svg-icons';
@@ -6,13 +6,14 @@ import {faPrint} from '@fortawesome/free-solid-svg-icons';
 import {Curriculum} from '../../../core/models';
 import {endDateToShow} from '../../../shared/utils';
 import {WINDOW} from '../../../core/config';
+import {timer} from "rxjs";
 
 @Component({
   selector: 'app-template3',
   templateUrl: './template3.component.html',
   styleUrls: ['./template3.component.scss']
 })
-export class Template3Component implements OnInit {
+export class Template3Component implements OnInit, AfterViewInit {
 
   printIcon = faPrint;
 
@@ -28,6 +29,10 @@ export class Template3Component implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit(): void {
+    this.printAction();
   }
 
   progressTilesCount(percent): number {

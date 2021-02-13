@@ -110,7 +110,7 @@
         </tr>
       </table>
     </div>
-    <div class="title new-page cv-margin"
+    <div class="title cv-margin"
          *ngIf="curriculum?.experience">
       <h2>Work History</h2>
       <div class="line-container">
@@ -120,7 +120,6 @@
     <ng-container *ngIf="curriculum?.experience">
       <table class="cv-margin">
         <tr *ngFor="let job of curriculum.experience"
-            [ngClass]="{'new-page': job?.breakPage}"
             fxLayout="row">
           <td fxFlex="20"
               class="date">

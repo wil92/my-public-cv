@@ -49,6 +49,15 @@
     text-transform: uppercase;
   }
 
+  ::ng-deep h4 {
+    font-size: 1.2rem;
+    color: $highlight2;
+  }
+
+  ::ng-deep ul {
+    color: $text-color;
+  }
+
   ::ng-deep p {
     color: $text-color2;
     font-size: 1rem;
@@ -219,6 +228,7 @@
 
     .container4 {
       padding-top: 100px;
+      padding-bottom: 50px;
     }
   }
 }

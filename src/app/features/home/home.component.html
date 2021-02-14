@@ -150,17 +150,10 @@
          fxLayout="column">
       <h3 id="education_fragment">{{i18nData?.education}}</h3>
       <h2>{{i18nData?.university}}</h2>
-      <p>Courses
-        (2018-Mar-22) Competitive Programming Course by Artsem Zhuk
-        (2018-Jul-05) Competitive Programming Course by Pablo Zimmermann
-        Events
-        (2016) Pachamama Game Jam
-        (2017) Pachamama Game Jam
-        (2017) Global Game Jam
-        (2017/11) ACM-ICPC Caribbean Finals (Team coach)
-      </p>
+      <markdown *ngIf="i18nData?.educationData"
+                [data]="i18nData?.educationData"></markdown>
     </div>
-    <div class="container-padding dark-container"
+    <div class="container-padding light-container"
          fxLayout="row"
          fxLayoutAlign="center center">
       <p>Copyright © {{getDate()}}</p>

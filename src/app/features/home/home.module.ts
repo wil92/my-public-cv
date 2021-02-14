@@ -9,6 +9,7 @@ import {HomeComponent} from './home.component';
 import {MenuComponent} from './menu/menu.component';
 import {ContentfulResolver} from '../../core/resolvers/contentful.resolver';
 import {CurriculumResolver} from '../../core/resolvers';
+import {MarkdownModule} from "ngx-markdown";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {CurriculumResolver} from '../../core/resolvers';
     HomeRoutingModule,
     FlexModule,
     FontAwesomeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MarkdownModule
   ],
   providers: [ContentfulResolver, CurriculumResolver]
 })

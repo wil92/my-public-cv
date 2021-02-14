@@ -54,6 +54,15 @@
     font-size: 1rem;
   }
 
+  ::ng-deep a.link {
+    color: $highlight2;
+    font-size: 1.2rem;
+
+    fa-icon {
+      margin-left: 10px;
+    }
+  }
+
   @media screen and (max-width: 1280px) {
     .content {
       margin-top: 0 !important;
@@ -69,6 +78,10 @@
 
     .container1 {
       overflow: hidden;
+
+      cv-menu {
+        z-index: 1000;
+      }
 
       .left {
         position: relative;

@@ -8,4 +8,9 @@
   <h3>{{i18nData?.introduction}}</h3>
   <h2>{{i18nData?.personalDescription}}</h2>
   <p>{{i18nData?.shortDescription}}</p>
+  <a class="link"
+     [routerLink]="'/cv-print'">
+    {{i18nData?.myCurriculum}}
+    <fa-icon [icon]="arrowRightIcon"></fa-icon>
+  </a>
 </div>

@@ -21,6 +21,7 @@
           <div fxLayout.xs="row wrap">
             <ng-container *ngFor="let social of socials">
               <a [href]="social.url"
+                 target="_blank"
                  fxFlex.xs=""
                  [title]="social.label">
                 <fa-icon [icon]="social.icon"></fa-icon>

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 
+import {faArrowRight} from '@fortawesome/free-solid-svg-icons';
+
 import {ContentNames} from '../../../core/contentful/content-names';
 import {ContentfulService} from '../../../core/contentful/contentful.service';
 
@@ -11,6 +13,8 @@ import {ContentfulService} from '../../../core/contentful/contentful.service';
 export class MenuComponent implements OnInit {
 
   i18nData: any;
+
+  arrowRightIcon = faArrowRight;
 
   constructor(private contentful: ContentfulService) {
   }

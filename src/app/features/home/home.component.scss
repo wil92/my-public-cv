@@ -44,6 +44,9 @@
   ::ng-deep h1 {
     font-size: 3rem;
     color: $text-color;
+    display: table-caption;
+    word-spacing: 9999rem;
+    text-transform: uppercase;
   }
 
   ::ng-deep p {

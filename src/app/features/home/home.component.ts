@@ -1,92 +1,42 @@
-import {AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 
-import {
-  faFacebook,
-  faTwitter,
-  faLinkedinIn,
-  faXingSquare,
-  faStackOverflow
-} from '@fortawesome/free-brands-svg-icons';
-
-import {
-  faLaptop,
-  faGraduationCap,
-  faMicrophone
-} from '@fortawesome/free-solid-svg-icons';
-import {timer} from "rxjs";
+import {ContentfulService} from '../../core/contentful/contentful.service';
+import {ContentNames} from '../../core/contentful/content-names';
 
 @Component({
   selector: 'cv-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
 
   @ViewChild('actions_container')
   actionsContainer: ElementRef;
-
   actionHeight = 0;
 
-  socials = [
-    {
-      url: '#',
-      icon: faLinkedinIn,
-      label: 'LinkedIn'
-    },
-    {
-      url: '#',
-      icon: faTwitter,
-      label: 'Twitter'
-    },
-    {
-      url: '#',
-      icon: faXingSquare,
-      label: 'Xing'
-    },
-    {
-      url: '#',
-      icon: faStackOverflow,
-      label: 'StackOverflow'
-    },
-    {
-      url: '#',
-      icon: faFacebook,
-      label: 'Facebook'
-    }
-  ];
+  socials = [];
+  actions = [];
 
-  actions = [
-    {
-      url: '#',
-      icon: faLaptop,
-      label: 'Public project'
-    },
-    {
-      url: '#',
-      icon: faMicrophone,
-      label: 'Podcast'
-    },
-    {
-      url: '#',
-      icon: faGraduationCap,
-      label: 'Education'
-    }
-  ];
+  i18nData: any;
 
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.updateActionButtonsSize();
   }
 
-  constructor() {
-    import('@fortawesome/free-brands-svg-icons').then(v => v.faTwitter);
+  constructor(private contentful: ContentfulService) {
   }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    this.updateActionButtonsSize();
+    this.contentful.select(ContentNames.MY_CV_HOME).subscribe((data: any) => {
+      this.i18nData = data;
+      import('@fortawesome/free-solid-svg-icons').then(v => {
+        this.actions = data?.actions?.map(action => ({...action, icon: v[action?.icon]}));
+      });
+      import('@fortawesome/free-brands-svg-icons').then(v => {
+        this.socials = data?.socials?.map(social => ({...social, icon: v[social?.icon]}));
+      });
+    });
   }
 
   updateActionButtonsSize() {

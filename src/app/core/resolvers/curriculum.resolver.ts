@@ -4,8 +4,9 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 
-import {Curriculum, Education, Job} from '../models';
+import {Curriculum} from '../models';
 import {ContentfulService} from '../contentful/contentful.service';
+import {ContentNames} from '../contentful/content-names';
 
 @Injectable()
 export class CurriculumResolver implements Resolve<Curriculum> {
@@ -15,21 +16,11 @@ export class CurriculumResolver implements Resolve<Curriculum> {
   }
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Curriculum> | Promise<Curriculum> | Curriculum {
-    return this.contentful.fetchContentType('myCv').pipe(map((res) => {
-      return {
+    return this.contentful.fetchContentType(ContentNames.MY_CV).pipe(map((res) => {
+      return this.toDate({
         ...res,
-        education: res.education?.map((edu: Education) => ({
-          ...edu,
-          endDate: new Date(edu.endDate),
-          startDate: new Date(edu.startDate)
-        } as Education)),
-        experience: res.experience?.map((exp: Job) => ({
-          ...exp,
-          endDate: new Date(exp.endDate),
-          startDate: new Date(exp.startDate),
-        }) as Job),
         personUrl: res.personUrl?.fields?.file?.url
-      } as Curriculum;
+      } as Curriculum);
     }));
   }
 
@@ -46,21 +37,5 @@ export class CurriculumResolver implements Resolve<Curriculum> {
       }
     }
     return data;
-  }
-
-  flatObjectValues(data): string[] {
-    let result = [];
-    if (Array.isArray(data)) {
-      data.forEach(item => {
-        result = result.concat(this.flatObjectValues(item));
-      });
-    } else if (typeof data === 'object') {
-      Object.keys(data).forEach(key => {
-        result = result.concat(this.flatObjectValues(data[key]));
-      });
-    } else {
-      result.push(data);
-    }
-    return [...new Set(result)];
   }
 }

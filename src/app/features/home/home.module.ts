@@ -7,6 +7,8 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {HomeRoutingModule} from './home-routing.module';
 import {HomeComponent} from './home.component';
 import {MenuComponent} from './menu/menu.component';
+import {ContentfulResolver} from '../../core/resolvers/contentful.resolver';
+import {CurriculumResolver} from '../../core/resolvers';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {MenuComponent} from './menu/menu.component';
     FlexModule,
     FontAwesomeModule,
     FlexLayoutModule
-  ]
+  ],
+  providers: [ContentfulResolver, CurriculumResolver]
 })
 export class HomeModule {
 }

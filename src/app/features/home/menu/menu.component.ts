@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {ContentNames} from '../../../core/contentful/content-names';
+import {ContentfulService} from '../../../core/contentful/contentful.service';
 
 @Component({
   selector: 'cv-menu',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  i18nData: any;
+
+  constructor(private contentful: ContentfulService) {
+  }
 
   ngOnInit(): void {
+    this.contentful.select(ContentNames.MY_CV_HOME).subscribe(data => this.i18nData = data);
   }
 
 }

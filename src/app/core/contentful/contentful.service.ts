@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 
 import {ContentfulClientApi, createClient} from 'contentful';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable, Subject} from 'rxjs';
 import {fromPromise} from 'rxjs/internal-compatibility';
 import 'regenerator-runtime/runtime';
 
@@ -14,9 +14,10 @@ import {Environment} from '../models/environment';
 })
 export class ContentfulService {
 
-  data = new Map<string, any>();
+  private data = new Map<string, any>();
+  private observables = new Map<string, BehaviorSubject<any>>();
 
-  contentfulClient: ContentfulClientApi;
+  private contentfulClient: ContentfulClientApi;
 
   constructor(@Inject(ENVIRONMENT) private env: Environment) {
     this.contentfulClient = createClient({
@@ -24,20 +25,32 @@ export class ContentfulService {
       space: env.space,
       resolveLinks: true
     });
-    // this.contentfulClient.getAsset('1ifod0NvtVhf0wcVjPKRdD').then(console.log);
   }
 
   fetchContentType(contentTypeId: string): Observable<any> {
     return fromPromise(this.contentfulClient.getEntries({content_type: contentTypeId})
       .then((res) => {
         if (res.items.length) {
-          this.data.set(contentTypeId, res.items[0].fields);
+          this.data.set(contentTypeId, res.items[0]?.fields);
+          this.checkObservable(contentTypeId);
+          this.observables.get(contentTypeId).next(res.items[0]?.fields);
           return res.items[0].fields;
         }
       }));
   }
 
-  getContentType(contentTypeId: string): any {
+  snapShot(contentTypeId: string): any {
     return this.data.get(contentTypeId);
+  }
+
+  select(contentTypeId: string): Observable<any> {
+    this.checkObservable(contentTypeId);
+    return this.observables.get(contentTypeId);
+  }
+
+  private checkObservable(contentTypeId) {
+    if (!this.observables.has(contentTypeId)) {
+      this.observables.set(contentTypeId, new BehaviorSubject<any>(null));
+    }
   }
 }

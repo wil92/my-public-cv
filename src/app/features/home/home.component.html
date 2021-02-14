@@ -17,7 +17,7 @@
            class="left">
         <div class="information"
              fxLayout="column">
-          <h1>Guillermo González Jiménez</h1>
+          <h1>{{i18nData?.name}}</h1>
           <div fxLayout.xs="row wrap">
             <ng-container *ngFor="let social of socials">
               <a [href]="social.url"
@@ -46,14 +46,14 @@
              fxFlex.sm="100"
              fxFlex.xs="100"
              fxFlex="50">
-          <h3>Profile</h3>
-          <h2>How contact me</h2>
-          <p>You can email me, or call me if you are interesting on my profile</p>
+          <h3>{{i18nData?.profile}}</h3>
+          <h2>{{i18nData?.contactMe}}</h2>
+          <p>{{i18nData?.contactMeDescription}}</p>
         </div>
         <div fxFlex.sm="100"
              fxFlex.xs="100"
              fxFlex="50">
-          <h2>My experience in the field</h2>
+          <h2>{{i18nData?.myExperience}}</h2>
           <p></p>
         </div>
       </div>
@@ -63,6 +63,9 @@
            fxLayoutAlign="center center">
         <ng-container *ngFor="let action of actions">
           <a fxFlex="30"
+             fxFlex.md="25"
+             fxFlex.lg="20"
+             fxFlex.xl="15"
              [href]="action.url"
              fxLayout="row"
              [style.height.px]="actionHeight"

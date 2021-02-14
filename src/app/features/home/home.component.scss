@@ -199,6 +199,13 @@
       .project-container {
         margin-top: 30px;
 
+        @media screen and (max-width: 500px) {
+          .project-card {
+            max-height: initial !important;
+            min-height: initial !important;
+          }
+        }
+
         .project-card {
           text-decoration: none;
           background-color: $actions-color;

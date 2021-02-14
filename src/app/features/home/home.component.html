@@ -50,6 +50,21 @@
           <h3>{{i18nData?.profile}}</h3>
           <h2>{{i18nData?.contactMe}}</h2>
           <p>{{i18nData?.contactMeDescription}}</p>
+          <div class="contact-data"
+               fxLayoutAlign="start center"
+               fxLayout="row">
+            <fa-icon [icon]="phoneIcon"></fa-icon>
+            +49 176-87837133
+          </div>
+          <div class="contact-data"
+               fxLayoutAlign="start center"
+               fxLayout="row">
+            <fa-icon [icon]="mailIcon"></fa-icon>
+            <a class="link"
+               href="#">ggjnez92@gmail.com
+              <fa-icon [icon]="arrowRightIcon"></fa-icon>
+            </a>
+          </div>
         </div>
         <div fxFlex.sm="100"
              fxFlex.xs="100"

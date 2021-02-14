@@ -128,6 +128,16 @@
     .container2 {
       padding-top: 80px;
 
+      .contact-data {
+        font-size: 1.2rem;
+        color: $highlight2;
+        margin-top: 10px;
+
+        fa-icon {
+          margin-right: 20px;
+        }
+      }
+
       .actions-container {
         margin-top: 50px;
 

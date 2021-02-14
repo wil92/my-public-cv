@@ -8,6 +8,8 @@ import {
   ViewChild
 } from '@angular/core';
 
+import {faPhone, faEnvelope, faArrowRight} from '@fortawesome/free-solid-svg-icons';
+
 import {ContentfulService} from '../../core/contentful/contentful.service';
 import {ContentNames} from '../../core/contentful/content-names';
 
@@ -26,6 +28,10 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   actions = [];
 
   i18nData: any;
+
+  phoneIcon = faPhone;
+  mailIcon = faEnvelope;
+  arrowRightIcon = faArrowRight;
 
   @HostListener('window:resize', ['$event'])
   onResize() {

@@ -73,17 +73,20 @@
              fxFlex="50">
           <h2>{{i18nData?.myExperience}}</h2>
           <p></p>
-          <div fxLayout="row">
+          <div fxLayout="row"
+               fxLayout.xs="column">
             <div class="experience-item"
                  fxLayoutAlign="center center"
                  fxFlex="40"
+                 fxFlex.xs="100"
                  fxLayout="row">
               <h1>{{i18nData?.yearOfExperience}}</h1>
               <span>{{i18nData?.yearOfExperienceDesc}}</span>
             </div>
             <div class="experience-item"
-                 fxLayoutAlign="center center"
+                 fxLayoutAlign="start center"
                  fxFlex="40"
+                 fxFlex.xs="100"
                  fxLayout="row">
               <h1>{{i18nData?.projectNumber}}</h1>
               <span>{{i18nData?.projectNumberDesc}}</span>

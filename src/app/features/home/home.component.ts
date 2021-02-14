@@ -1,4 +1,12 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {
+  AfterViewChecked,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  ViewChild
+} from '@angular/core';
 
 import {ContentfulService} from '../../core/contentful/contentful.service';
 import {ContentNames} from '../../core/contentful/content-names';
@@ -8,7 +16,7 @@ import {ContentNames} from '../../core/contentful/content-names';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewChecked {
 
   @ViewChild('actions_container')
   actionsContainer: ElementRef;
@@ -24,7 +32,11 @@ export class HomeComponent implements OnInit {
     this.updateActionButtonsSize();
   }
 
-  constructor(private contentful: ContentfulService) {
+  constructor(private contentful: ContentfulService, private cdref: ChangeDetectorRef) {
+  }
+
+  ngAfterViewChecked(): void {
+    this.updateActionButtonsSize();
   }
 
   ngOnInit(): void {
@@ -44,6 +56,7 @@ export class HomeComponent implements OnInit {
     const actions = this.actionsContainer?.nativeElement?.children;
     // noinspection JSSuspiciousNameCombination
     this.actionHeight = actions?.length ? actions[FIRST_CHILD]?.clientWidth : this.actionHeight;
+    this.cdref.detectChanges();
   }
 
   getDate() {

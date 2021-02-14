@@ -150,6 +150,7 @@
             color: $highlight2;
             margin: 0 20px 0 0;
           }
+
           span {
             color: $text-color;
             display: table-caption;
@@ -173,12 +174,51 @@
           margin: 0 5px;
           z-index: 100;
           text-decoration: none;
+          overflow: hidden;
 
           &:hover {
             background-color: $highlight;
           }
         }
       }
+    }
+
+    .container3 {
+      padding-bottom: 40px;
+      padding-top: 50px;
+
+      .project-container {
+        margin-top: 30px;
+
+        .project-card {
+          text-decoration: none;
+          background-color: $actions-color;
+          padding: 10px;
+          margin: 5px;
+          border: solid .5px #00000000;
+          max-height: 170px;
+          min-height: 170px;
+
+          .stack {
+            color: $highlight;
+            margin: 2px;
+            font-weight: bold;
+          }
+
+          &:hover {
+            border: solid .5px $highlight;
+
+            h2 {
+              color: $highlight2;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+
+    .container4 {
+      padding-top: 100px;
     }
   }
 }

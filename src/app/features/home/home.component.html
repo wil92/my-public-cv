@@ -30,7 +30,7 @@
           </div>
         </div>
         <img class="image-banner"
-             src="/assets/images/banner-image.png"
+             [src]="i18nData?.bannerImage?.fields?.file?.url"
              alt="guille-banner">
       </div>
       <cv-menu fxFlex="40"
@@ -109,10 +109,10 @@
              [style.marginBottom.px]="-actionHeight / 2"
              fxLayoutAlign="center center"
              class="action">
-            <fa-icon fxFlex="30"
+            <fa-icon fxFlex="25"
                      fxLayoutAlign="center center"
                      [icon]="action.icon"></fa-icon>
-            <h2 fxFlex="70"
+            <h2 fxFlex="75"
                 fxLayoutAlign="start center"
                 [fxShow.xs]="false">{{action.label}}</h2>
           </a>
@@ -121,7 +121,46 @@
     </div>
     <div [style.height.px]="actionHeight / 2"
          class="container-padding light-container"></div>
-    <div class="container3 container-padding light-container"
+    <div class="container3 container-padding light-container">
+      <h3 id="public_projects_fragment">public projects</h3>
+      <div class="project-container"
+           *ngIf="i18nData?.projects"
+           fxLayoutAlign="center center"
+           fxLayout="row wrap">
+        <ng-container *ngFor="let project of i18nData?.projects">
+          <a class="project-card"
+             [href]="project?.url"
+             target="_blank"
+             fxFlex.xl="30"
+             fxFlex="45"
+             fxFlex.xs="95"
+             fxFlex.sm="95">
+            <h2>{{project?.name}}</h2>
+            <p>{{project?.description}}</p>
+            <div fxLayout="row wrap"
+                 *ngIf="project?.stack">
+              <span class="stack"
+                    *ngFor="let tech of project?.stack">{{tech}}</span>
+            </div>
+          </a>
+        </ng-container>
+      </div>
+    </div>
+    <div class="container4 container-padding dark-container"
+         fxLayout="column">
+      <h3 id="education_fragment">{{i18nData?.education}}</h3>
+      <h2>{{i18nData?.university}}</h2>
+      <p>Courses
+        (2018-Mar-22) Competitive Programming Course by Artsem Zhuk
+        (2018-Jul-05) Competitive Programming Course by Pablo Zimmermann
+        Events
+        (2016) Pachamama Game Jam
+        (2017) Pachamama Game Jam
+        (2017) Global Game Jam
+        (2017/11) ACM-ICPC Caribbean Finals (Team coach)
+      </p>
+    </div>
+    <div class="container-padding dark-container"
          fxLayout="row"
          fxLayoutAlign="center center">
       <p>Copyright © {{getDate()}}</p>

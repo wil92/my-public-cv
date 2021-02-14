@@ -3,7 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  HostListener,
+  HostListener, Inject,
   OnInit,
   ViewChild
 } from '@angular/core';
@@ -12,6 +12,8 @@ import {faPhone, faEnvelope, faArrowRight} from '@fortawesome/free-solid-svg-ico
 
 import {ContentfulService} from '../../core/contentful/contentful.service';
 import {ContentNames} from '../../core/contentful/content-names';
+import {ActivatedRoute} from "@angular/router";
+import {WINDOW} from "../../core/config";
 
 @Component({
   selector: 'cv-home',
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
 
   socials = [];
   actions = [];
+  projects = [];
 
   i18nData: any;
 
@@ -38,7 +41,11 @@ export class HomeComponent implements OnInit, AfterViewChecked {
     this.updateActionButtonsSize();
   }
 
-  constructor(private contentful: ContentfulService, private cdref: ChangeDetectorRef) {
+  constructor(
+    private contentful: ContentfulService,
+    private route: ActivatedRoute,
+    @Inject(WINDOW) private window: Window,
+    private cdref: ChangeDetectorRef) {
   }
 
   ngAfterViewChecked(): void {
@@ -48,6 +55,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   ngOnInit(): void {
     this.contentful.select(ContentNames.MY_CV_HOME).subscribe((data: any) => {
       this.i18nData = data;
+      console.log(data);
       import('@fortawesome/free-solid-svg-icons').then(v => {
         this.actions = data?.actions?.map(action => ({...action, icon: v[action?.icon]}));
       });
@@ -55,6 +63,19 @@ export class HomeComponent implements OnInit, AfterViewChecked {
         this.socials = data?.socials?.map(social => ({...social, icon: v[social?.icon]}));
       });
     });
+
+    this.scrollToSection();
+  }
+
+  scrollToSection() {
+    const fragment = this.route.snapshot.fragment;
+    if (fragment) {
+      console.log(fragment)
+      const value = this.window.document.getElementById(fragment);
+      if (value) {
+        value.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'start'});
+      }
+    }
   }
 
   updateActionButtonsSize() {

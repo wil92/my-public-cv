@@ -54,23 +54,41 @@
                fxLayoutAlign="start center"
                fxLayout="row">
             <fa-icon [icon]="phoneIcon"></fa-icon>
-            +49 176-87837133
+            {{i18nData?.phone}}
           </div>
           <div class="contact-data"
                fxLayoutAlign="start center"
                fxLayout="row">
             <fa-icon [icon]="mailIcon"></fa-icon>
             <a class="link"
-               href="#">ggjnez92@gmail.com
+               target="_blank"
+               [href]="'mailto:' + i18nData?.email">{{i18nData?.email}}
               <fa-icon [icon]="arrowRightIcon"></fa-icon>
             </a>
           </div>
         </div>
-        <div fxFlex.sm="100"
+        <div class="experience-data"
+             fxFlex.sm="100"
              fxFlex.xs="100"
              fxFlex="50">
           <h2>{{i18nData?.myExperience}}</h2>
           <p></p>
+          <div fxLayout="row">
+            <div class="experience-item"
+                 fxLayoutAlign="center center"
+                 fxFlex="40"
+                 fxLayout="row">
+              <h1>{{i18nData?.yearOfExperience}}</h1>
+              <span>{{i18nData?.yearOfExperienceDesc}}</span>
+            </div>
+            <div class="experience-item"
+                 fxLayoutAlign="center center"
+                 fxFlex="40"
+                 fxLayout="row">
+              <h1>{{i18nData?.projectNumber}}</h1>
+              <span>{{i18nData?.projectNumberDesc}}</span>
+            </div>
+          </div>
         </div>
       </div>
       <div class="actions-container"

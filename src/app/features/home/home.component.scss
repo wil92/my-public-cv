@@ -138,6 +138,28 @@
         }
       }
 
+      @media screen and (max-width: 959px) {
+        .experience-data {
+          margin-top: 50px !important;
+        }
+      }
+
+      .experience-data {
+        .experience-item {
+          h1 {
+            color: $highlight2;
+            margin: 0 20px 0 0;
+          }
+          span {
+            color: $text-color;
+            display: table-caption;
+            word-spacing: 100rem;
+            font-size: .9rem;
+            font-weight: bold;
+          }
+        }
+      }
+
       .actions-container {
         margin-top: 50px;
 

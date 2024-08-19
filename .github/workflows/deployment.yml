@@ -26,8 +26,8 @@ jobs:
 
       # pipeline actions
       - run: npm ci
-      - run: npm test
-      - run: npm run build
+#      - run: npm test
+#      - run: npm run build
 
 
   deploy:

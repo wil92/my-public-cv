@@ -40,7 +40,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Copy project to the hosting
-        uses: easingthemes/ssh-deploy@2.1.5
+        uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete"

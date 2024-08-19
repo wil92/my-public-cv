@@ -6,4 +6,4 @@ services:
       context: .
     restart: always
     ports:
-      - "${CV_PORT}:80"
+      - "${PORT_CV}:80"

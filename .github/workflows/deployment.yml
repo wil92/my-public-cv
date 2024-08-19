@@ -26,7 +26,6 @@ jobs:
 
       # pipeline actions
       - run: npm ci
-#      - run: npm test
 #      - run: npm run build
 
 
@@ -41,7 +40,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Copy project to the hosting
-        uses: easingthemes/ssh-deploy@vmain
+        uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO --delete"

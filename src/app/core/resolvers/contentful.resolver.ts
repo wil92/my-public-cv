@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import {forkJoin, Observable} from 'rxjs';
 
 import {ContentfulService} from '../contentful/contentful.service';
 
 @Injectable()
-export class ContentfulResolver implements Resolve<any[]> {
+export class ContentfulResolver  {
   constructor(private contentful: ContentfulService) {
   }
 

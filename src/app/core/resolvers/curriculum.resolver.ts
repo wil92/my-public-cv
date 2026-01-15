@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -9,7 +9,7 @@ import {ContentfulService} from '../contentful/contentful.service';
 import {ContentNames} from '../contentful/content-names';
 
 @Injectable()
-export class CurriculumResolver implements Resolve<Curriculum> {
+export class CurriculumResolver  {
   constructor(
     private contentful: ContentfulService
   ) {

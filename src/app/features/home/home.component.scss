@@ -1,19 +1,19 @@
-@import "./src/app/features/home/variables";
+@use './src/app/features/home/variables' as vars;
 
 :host {
   font-family: "Roboto";
-  background-color: $secondary;
+  background-color: vars.$secondary;
 
   .light-container {
-    background-color: $primary;
+    background-color: vars.$primary;
   }
 
   .dark-container {
-    background-color: $primary2;
+    background-color: vars.$primary2;
   }
 
   ::ng-deep h3 {
-    color: $text-color2;
+    color: vars.$text-color2;
     text-transform: capitalize;
     font-size: .8rem;
     position: relative;
@@ -27,7 +27,7 @@
 
     &:before {
       content: '';
-      background-color: $text-color2;
+      background-color: vars.$text-color2;
       width: 7px;
       height: 2px;
       margin: 0 5px;
@@ -38,12 +38,12 @@
   ::ng-deep h2 {
     display: inline;
     margin: 10px 0;
-    color: $text-color;
+    color: vars.$text-color;
   }
 
   ::ng-deep h1 {
     font-size: 3rem;
-    color: $text-color;
+    color: vars.$text-color;
     display: table-caption;
     word-spacing: 9999rem;
     text-transform: uppercase;
@@ -51,20 +51,20 @@
 
   ::ng-deep h4 {
     font-size: 1.2rem;
-    color: $highlight2;
+    color: vars.$highlight2;
   }
 
   ::ng-deep ul {
-    color: $text-color;
+    color: vars.$text-color;
   }
 
   ::ng-deep p {
-    color: $text-color2;
+    color: vars.$text-color2;
     font-size: 1rem;
   }
 
   ::ng-deep a.link {
-    color: $highlight2;
+    color: vars.$highlight2;
     font-size: 1.2rem;
 
     fa-icon {
@@ -119,7 +119,7 @@
           top: 0;
 
           a {
-            color: $text-color;
+            color: vars.$text-color;
 
             fa-icon {
               font-size: 1.5rem;
@@ -127,7 +127,7 @@
             }
 
             &:hover {
-              color: $highlight;
+              color: vars.$highlight;
             }
           }
         }
@@ -139,7 +139,7 @@
 
       .contact-data {
         font-size: 1.2rem;
-        color: $highlight2;
+        color: vars.$highlight2;
         margin-top: 10px;
 
         fa-icon {
@@ -156,12 +156,12 @@
       .experience-data {
         .experience-item {
           h1 {
-            color: $highlight2;
+            color: vars.$highlight2;
             margin: 0 20px 0 0;
           }
 
           span {
-            color: $text-color;
+            color: vars.$text-color;
             display: table-caption;
             word-spacing: 100rem;
             font-size: .9rem;
@@ -178,15 +178,15 @@
         }
 
         .action {
-          background-color: $actions-color;
-          color: $text-color;
+          background-color: vars.$actions-color;
+          color: vars.$text-color;
           margin: 0 5px;
           z-index: 100;
           text-decoration: none;
           overflow: hidden;
 
           &:hover {
-            background-color: $highlight;
+            background-color: vars.$highlight;
           }
         }
       }
@@ -208,7 +208,7 @@
 
         .project-card {
           text-decoration: none;
-          background-color: $actions-color;
+          background-color: vars.$actions-color;
           padding: 10px;
           margin: 5px;
           border: solid .5px #00000000;
@@ -216,16 +216,16 @@
           min-height: 170px;
 
           .stack {
-            color: $highlight;
+            color: vars.$highlight;
             margin: 2px;
             font-weight: bold;
           }
 
           &:hover {
-            border: solid .5px $highlight;
+            border: solid .5px vars.$highlight;
 
             h2 {
-              color: $highlight2;
+              color: vars.$highlight2;
               text-decoration: underline;
             }
           }

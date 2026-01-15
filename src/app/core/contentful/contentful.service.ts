@@ -1,7 +1,7 @@
 import {Inject, Injectable} from '@angular/core';
 
 import {ContentfulClientApi, createClient} from 'contentful';
-import {BehaviorSubject, Observable, Subject} from 'rxjs';
+import {BehaviorSubject, Observable} from 'rxjs';
 import {fromPromise} from 'rxjs/internal-compatibility';
 import 'regenerator-runtime/runtime';
 
@@ -17,13 +17,12 @@ export class ContentfulService {
   private data = new Map<string, any>();
   private observables = new Map<string, BehaviorSubject<any>>();
 
-  private contentfulClient: ContentfulClientApi;
+  private contentfulClient: ContentfulClientApi<any>;
 
   constructor(@Inject(ENVIRONMENT) private env: Environment) {
     this.contentfulClient = createClient({
       accessToken: env.accessToken,
-      space: env.space,
-      resolveLinks: true
+      space: env.space
     });
   }
 

@@ -32,9 +32,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/marked/lib/marked.js"
-            ],
+            "scripts": [],
             "extractLicenses": false,
             "sourceMap": true,
             "optimization": false,
@@ -101,7 +99,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": ["node_modules/marked/lib/marked.js"],
+            "scripts": [],
             "assets": [
               "src/favicon.png",
               "src/assets"
@@ -110,5 +108,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

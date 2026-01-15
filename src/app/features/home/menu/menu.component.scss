@@ -1,4 +1,4 @@
-@import "./src/app/features/home/variables";
+@use "./src/app/features/home/variables" as vars;
 
 :host {
   .info {
@@ -13,21 +13,21 @@
         display: flex;
         place-content: center;
         align-items: center;
-        color: $text-color2;
+        color: vars.$text-color2;
         text-decoration: none;
         font-size: 1.8rem;
         font-weight: bold;
         margin-right: 20px;
 
         &.active, &:hover {
-          color: $text-color;
+          color: vars.$text-color;
 
           &:after {
             content: '';
             width: 5px;
             height: 5px;
             border-radius: 50%;
-            background-color: $highlight;
+            background-color: vars.$highlight;
           }
         }
       }

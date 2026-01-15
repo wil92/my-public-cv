@@ -16,9 +16,10 @@ import {ActivatedRoute} from "@angular/router";
 import {WINDOW} from "../../core/config";
 
 @Component({
-  selector: 'cv-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'cv-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    standalone: false
 })
 export class HomeComponent implements OnInit, AfterViewChecked {
 

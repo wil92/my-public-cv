@@ -6,9 +6,10 @@ import {ContentNames} from '../../../core/contentful/content-names';
 import {ContentfulService} from '../../../core/contentful/contentful.service';
 
 @Component({
-  selector: 'cv-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+    selector: 'cv-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.scss'],
+    standalone: false
 })
 export class MenuComponent implements OnInit {
 

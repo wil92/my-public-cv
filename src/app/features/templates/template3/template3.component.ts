@@ -8,9 +8,10 @@ import {endDateToShow} from '../../../shared/utils';
 import {WINDOW} from '../../../core/config';
 
 @Component({
-  selector: 'app-template3',
-  templateUrl: './template3.component.html',
-  styleUrls: ['./template3.component.scss']
+    selector: 'app-template3',
+    templateUrl: './template3.component.html',
+    styleUrls: ['./template3.component.scss'],
+    standalone: false
 })
 export class Template3Component implements OnInit {
 

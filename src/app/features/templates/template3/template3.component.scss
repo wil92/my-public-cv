@@ -23,7 +23,7 @@ body {
     font-style: normal;
   }
   //noinspection CssNoGenericFontName,CssInvalidPropertyValue
-  //font-family: sans-serif;
+  font-family: sans-serif;
 
   .fill-space {
     width: 100%;
@@ -119,12 +119,15 @@ body {
 
       .image-container {
         height: 200px;
+        width: 200px;
+        min-width: 200px;
         border: solid #fff;
         border-radius: 50%;
         margin-top: -20px;
 
         img {
-          height: calc(100% - 40px);
+          height: 100%;
+          width: 100%;
           border: solid 20px $secondary;
           border-radius: 50%;
         }
@@ -156,8 +159,8 @@ body {
     }
 
     .skills {
-      display: flex;
-      flex-direction: column;
+      display: flex !important;
+      flex-direction: row;
       justify-content: center;
 
       .skill {

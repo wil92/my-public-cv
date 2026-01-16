@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {HttpClientModule} from '@angular/common/http';
+import {provideHttpClient, withInterceptorsFromDi} from '@angular/common/http';
 
 import {MarkdownModule} from 'ngx-markdown';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
@@ -15,7 +15,9 @@ import {Template2RoutingModule} from './template2-routing.module';
     Template2RoutingModule,
     MarkdownModule.forRoot(),
     FontAwesomeModule,
-    HttpClientModule
+  ],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi())
   ]
 })
 export class Template2Module {

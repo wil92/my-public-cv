@@ -19,7 +19,8 @@ import {endDateToShow} from '../../../shared/utils';
 @Component({
   selector: 'app-template1',
   templateUrl: './template1.component.html',
-  styleUrls: ['./template1.component.scss']
+  styleUrls: ['./template1.component.scss'],
+  standalone: false
 })
 export class Template1Component implements OnInit {
 

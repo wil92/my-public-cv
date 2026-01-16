@@ -10,7 +10,8 @@ import {WINDOW} from '../../../core/config';
 @Component({
   selector: 'app-template2',
   templateUrl: './template2.component.html',
-  styleUrls: ['./template2.component.scss']
+  styleUrls: ['./template2.component.scss'],
+  standalone: false
 })
 export class Template2Component implements OnInit {
 

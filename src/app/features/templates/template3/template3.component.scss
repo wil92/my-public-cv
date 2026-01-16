@@ -239,6 +239,23 @@ body {
     .cv-margin {
       margin: 10px 60px;
       display: block;
+
+      ::ng-deep h2 {
+        font-size: 1.5rem !important;
+        font-weight: bold !important;
+      }
+    }
+
+    markdown {
+      ::ng-deep h2 {
+        font-size: 1.5rem !important;
+        font-weight: bold !important;
+      }
+
+      ::ng-deep h3 {
+        font-size: 1.17rem !important;
+        font-weight: bold !important;
+      }
     }
   }
 }

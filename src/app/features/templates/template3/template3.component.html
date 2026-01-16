@@ -126,8 +126,7 @@
   } @if (curriculum?.experience) {
     <table class="cv-margin">
       @for (job of curriculum.experience; track job) {
-        <tr
-          class="flex flex-row">
+        <tr class="flex flex-row">
           <td class="date w-1/5">
             <span>{{ job.name }}</span>, {{ job.startDate.getFullYear() }}{{ endDate(job.startDate, job.endDate) }}
           </td>

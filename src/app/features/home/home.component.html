@@ -101,8 +101,7 @@
       <h3 id="education_fragment">{{ i18nData?.education }}</h3>
       <h2>{{ i18nData?.university }}</h2>
       @if (i18nData?.educationData) {
-        <markdown
-          [data]="i18nData?.educationData"></markdown>
+        <markdown [data]="i18nData?.educationData"></markdown>
       }
     </div>
     <div class="container-padding light-container flex flex-row items-center justify-center">

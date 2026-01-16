@@ -46,6 +46,7 @@ jobs:
           ARGS: "-rltgoDzvO --delete"
           SOURCE: ""
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_PORT: 20
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
 
@@ -54,5 +55,6 @@ jobs:
         with:
           command: cd ${{ secrets.REMOTE_TARGET }} && PORT_CV=${{ secrets.PORT_CV }} docker-compose up -d --build
           host: ${{ secrets.REMOTE_HOST }}
+          port: 20
           username: ${{ secrets.REMOTE_USER }}
           privateKey: ${{ secrets.SERVER_SSH_KEY}}

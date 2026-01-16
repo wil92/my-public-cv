@@ -36,7 +36,7 @@
   }
 
   ::ng-deep h2 {
-    display: inline;
+    //display: inline;
     margin: 10px 0;
     color: vars.$text-color;
   }
@@ -212,8 +212,8 @@
           padding: 10px;
           margin: 5px;
           border: solid .5px #00000000;
-          max-height: 170px;
-          min-height: 170px;
+          //max-height: 170px;
+          min-height: 100%;
 
           .stack {
             color: vars.$highlight;

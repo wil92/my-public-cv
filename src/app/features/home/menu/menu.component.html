@@ -1,16 +1,17 @@
-<div fxLayout="column"
-     class="info">
-  <div class="menu"
-       fxLayout="row">
-    <a href="#" class="active">{{i18nData?.homeButton}}</a>
-    <a [routerLink]="'cv-print'">{{i18nData?.cvButton}}</a>
+<div class="info flex flex-col">
+  <div class="menu flex flex-row">
+    <a href="#"
+       class="active">
+      {{ i18nData?.homeButton }}
+    </a>
+    <a [routerLink]="'cv-print'">{{ i18nData?.cvButton }}</a>
   </div>
-  <h3>{{i18nData?.introduction}}</h3>
-  <h2>{{i18nData?.personalDescription}}</h2>
-  <p>{{i18nData?.shortDescription}}</p>
+  <h3>{{ i18nData?.introduction }}</h3>
+  <h2>{{ i18nData?.personalDescription }}</h2>
+  <p>{{ i18nData?.shortDescription }}</p>
   <a class="link"
      [routerLink]="'/cv-print'">
-    {{i18nData?.myCurriculum}}
+    {{ i18nData?.myCurriculum }}
     <fa-icon [icon]="arrowRightIcon"></fa-icon>
   </a>
 </div>

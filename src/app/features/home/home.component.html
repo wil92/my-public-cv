@@ -1,28 +1,14 @@
-<div fxLayout="row"
-     class="content"
-     fxLayoutAlign="center top">
-  <div fxLayout="column"
-       fxFlex.md="100"
-       fxFlex.sm="100"
-       fxFlex.xs="100"
-       fxFlex="70"
-       fxFlex.xl="60">
-    <div fxLayout="row"
-         fxLayout.xs="column"
-         fxLayout.sm="column"
-         class="container1 container-padding light-container">
-      <cv-menu fxHide.gt-sm="true"></cv-menu>
-      <div fxFlex="60"
-           fxLayout="column"
-           class="left">
-        <div class="information"
-             fxLayout="column">
-          <h1>{{i18nData?.name}}</h1>
-          <div fxLayout.xs="row wrap">
+<div class="content flex flex-row place-content-center">
+  <div class="flex flex-col w-70 sm:w-full md:w-full w-full lg:w-7/10 xl:w-3/5">
+    <div class="container1 container-padding light-container flex flex-col md:flex-row">
+      <cv-menu class="block md:hidden"></cv-menu>
+      <div class="left flex flex-col w-full md:w-3/5">
+        <div class="information flex flex-col">
+          <h1>{{ i18nData?.name }}</h1>
+          <div class="xs:flex xs:flex-row xs:flex-wrap">
             <ng-container *ngFor="let social of socials">
               <a [href]="social.url"
                  target="_blank"
-                 fxFlex.xs=""
                  [title]="social.label">
                 <fa-icon [icon]="social.icon"></fa-icon>
               </a>
@@ -33,88 +19,53 @@
              [src]="i18nData?.bannerImage?.fields?.file?.url"
              alt="guille-banner">
       </div>
-      <cv-menu fxFlex="40"
-               fxShow.xs="false"
-               fxShow.sm="false"
-               fxHide.gt-md="false"></cv-menu>
+      <cv-menu class="hidden md:block w-2/5"></cv-menu>
     </div>
-    <div class="container2 container-padding dark-container"
-         fxLayout="column">
-      <div fxLayout="row"
-           fxLayout.xs="column"
-           fxLayout.sm="column">
-        <div fxLayout="column"
-             fxFlex.sm="100"
-             fxFlex.xs="100"
-             fxFlex="50">
-          <h3>{{i18nData?.profile}}</h3>
-          <h2>{{i18nData?.contactMe}}</h2>
-          <p>{{i18nData?.contactMeDescription}}</p>
-          <div class="contact-data"
-               fxLayoutAlign="start center"
-               fxLayout="row">
+    <div class="container2 container-padding dark-container flex flex-col">
+      <div class="flex flex-col md:flex-row">
+        <div class="flex flex-col w-full md:w-1/2">
+          <h3>{{ i18nData?.profile }}</h3>
+          <h2>{{ i18nData?.contactMe }}</h2>
+          <p>{{ i18nData?.contactMeDescription }}</p>
+          <div *ngIf="i18nData?.phone"
+               class="contact-data flex flex-row">
             <fa-icon [icon]="phoneIcon"></fa-icon>
-            {{i18nData?.phone}}
+            {{ i18nData?.phone }}
           </div>
-          <div class="contact-data"
-               fxLayoutAlign="start center"
-               fxLayout="row">
+          <div class="contact-data flex flex-row">
             <fa-icon [icon]="mailIcon"></fa-icon>
             <a class="link"
                target="_blank"
-               [href]="'mailto:' + i18nData?.email">{{i18nData?.email}}
+               [href]="'mailto:' + i18nData?.email">{{ i18nData?.email }}
               <fa-icon [icon]="arrowRightIcon"></fa-icon>
             </a>
           </div>
         </div>
-        <div class="experience-data"
-             fxFlex.sm="100"
-             fxFlex.xs="100"
-             fxFlex="50">
-          <h2>{{i18nData?.myExperience}}</h2>
+        <div class="experience-data flex flex-col w-full md:w-1/2">
+          <h2>{{ i18nData?.myExperience }}</h2>
           <p></p>
-          <div fxLayout="row"
-               fxLayout.xs="column">
-            <div class="experience-item"
-                 fxLayoutAlign="center center"
-                 fxFlex="40"
-                 fxFlex.xs="100"
-                 fxLayout="row">
-              <h1>{{i18nData?.yearOfExperience}}</h1>
-              <span>{{i18nData?.yearOfExperienceDesc}}</span>
+          <div class="flex flex-col sm:flex-row">
+            <div class="experience-item flex flex-row w-full sm:w-2/5 items-center">
+              <h1>{{ i18nData?.yearOfExperience }}</h1>
+              <span>{{ i18nData?.yearOfExperienceDesc }}</span>
             </div>
-            <div class="experience-item"
-                 fxLayoutAlign="start center"
-                 fxFlex="40"
-                 fxFlex.xs="100"
-                 fxLayout="row">
-              <h1>{{i18nData?.projectNumber}}</h1>
-              <span>{{i18nData?.projectNumberDesc}}</span>
+            <div class="experience-item flex flex-row w-full sm:w-2/5 items-center">
+              <h1>{{ i18nData?.projectNumber }}</h1>
+              <span>{{ i18nData?.projectNumberDesc }}</span>
             </div>
           </div>
         </div>
       </div>
-      <div class="actions-container"
-           fxLayout="row"
-           #actions_container
-           fxLayoutAlign="center center">
+      <div class="actions-container flex flex-row justify-center"
+           #actions_container>
         <ng-container *ngFor="let action of actions">
-          <a fxFlex="30"
-             fxFlex.md="25"
-             fxFlex.lg="20"
-             fxFlex.xl="15"
-             [href]="action.url"
-             fxLayout="row"
+          <a [href]="action.url"
              [style.height.px]="actionHeight"
              [style.marginBottom.px]="-actionHeight / 2"
-             fxLayoutAlign="center center"
-             class="action">
-            <fa-icon fxFlex="25"
-                     fxLayoutAlign="center center"
+             class="action flex flex-row items-center justify-center w-3/10 md:w-1/4 lg:w-1/5 xl:w-3/20">
+            <fa-icon class="w-1/4 text-center justify-center"
                      [icon]="action.icon"></fa-icon>
-            <h2 fxFlex="75"
-                fxLayoutAlign="start center"
-                [fxShow.xs]="false">{{action.label}}</h2>
+            <h2 class="w-3/4 items-center justify-start hidden sm:block">{{ action.label }}</h2>
           </a>
         </ng-container>
       </div>
@@ -123,40 +74,31 @@
          class="container-padding light-container"></div>
     <div class="container3 container-padding light-container">
       <h3 id="public_projects_fragment">public projects</h3>
-      <div class="project-container"
-           *ngIf="i18nData?.projects"
-           fxLayoutAlign="center center"
-           fxLayout="row wrap">
+      <div class="project-container flex flex-row flex-wrap items-stretch justify-center"
+           *ngIf="i18nData?.projects">
         <ng-container *ngFor="let project of i18nData?.projects">
-          <a class="project-card"
+          <a class="project-card w-19/20 md:w-9/20"
              [href]="project?.url"
-             target="_blank"
-             fxFlex.xl="30"
-             fxFlex="45"
-             fxFlex.xs="95"
-             fxFlex.sm="95">
-            <h2>{{project?.name}}</h2>
-            <p>{{project?.description}}</p>
-            <div fxLayout="row wrap"
+             target="_blank">
+            <h2>{{ project?.name }}</h2>
+            <p>{{ project?.description }}</p>
+            <div class="flex flex-row flex-wrap"
                  *ngIf="project?.stack">
               <span class="stack"
-                    *ngFor="let tech of project?.stack">{{tech}}</span>
+                    *ngFor="let tech of project?.stack">{{ tech }}</span>
             </div>
           </a>
         </ng-container>
       </div>
     </div>
-    <div class="container4 container-padding dark-container"
-         fxLayout="column">
-      <h3 id="education_fragment">{{i18nData?.education}}</h3>
-      <h2>{{i18nData?.university}}</h2>
+    <div class="container4 container-padding dark-container flex flex-col">
+      <h3 id="education_fragment">{{ i18nData?.education }}</h3>
+      <h2>{{ i18nData?.university }}</h2>
       <markdown *ngIf="i18nData?.educationData"
                 [data]="i18nData?.educationData"></markdown>
     </div>
-    <div class="container-padding light-container"
-         fxLayout="row"
-         fxLayoutAlign="center center">
-      <p>Copyright © {{getDate()}}</p>
+    <div class="container-padding light-container flex flex-row items-center justify-center">
+      <p>Copyright © {{ getDate() }}</p>
     </div>
   </div>
 </div>

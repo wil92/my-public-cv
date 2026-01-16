@@ -141,6 +141,12 @@ body {
       .cv-bottom-banner-inner {
         width: 85%;
 
+        .social {
+          .sub-data {
+            text-decoration: underline;
+          }
+        }
+
         .personal-data {
           margin: 5px;
           font-family: sans-serif;

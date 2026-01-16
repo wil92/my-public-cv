@@ -12,8 +12,8 @@
     </div>
     <div class="cv-banner flex flex-row">
       <div class="flex flex-col w-4/5">
-        <h1>{{curriculum?.name}}</h1>
-        <h2>{{curriculum?.personalDescription}}</h2>
+        <h1>{{ curriculum?.name }}</h1>
+        <h2>{{ curriculum?.personalDescription }}</h2>
       </div>
       <div class="image-container">
         <img class="avatar"
@@ -23,99 +23,120 @@
     </div>
     <div class="cv-bottom-banner">
       <div class="cv-bottom-banner-inner flex flex-row flex-wrap">
-        <div class="personal-data flex flex-row w-9/20"
-             *ngIf="curriculum?.phoneNumbers && curriculum?.phoneNumbers.length > 0">
-          <span class="data-title">Phone(s):</span>
-          <div class="sub-data"><span *ngFor="let number of curriculum?.phoneNumbers">{{number}}</span></div>
-        </div>
-        <div class="personal-data flex flex-row w-9/20"
-             *ngIf="curriculum?.emails">
+        @if (curriculum?.phoneNumbers && curriculum?.phoneNumbers.length > 0) {
+          <div class="personal-data flex flex-row w-9/20">
+            <span class="data-title">Phone(s):</span>
+            <div class="sub-data">@for (number of curriculum?.phoneNumbers; track number) {
+              <span>{{ number }}</span>
+            }</div>
+          </div>
+        } @if (curriculum?.emails) {
+        <div class="personal-data flex flex-row w-9/20">
           <span class="data-title">Email(s):</span>
-          <div class="sub-data"><span *ngFor="let email of curriculum?.emails">{{email}}</span></div>
+          <div class="sub-data">
+            @for (email of curriculum?.emails; track email) {
+              <span>{{ email }}</span>
+            }
+          </div>
         </div>
-        <ng-container *ngIf="curriculum?.social">
-          <div *ngFor="let social of curriculum.social"
-               class="social personal-data flex flex-row w-9/20">
-            <span class="data-title">{{social.name}}: </span>
+      } @if (curriculum?.social) {
+        @for (social of curriculum.social; track social) {
+          <div
+            class="social personal-data flex flex-row w-9/20">
+            <span class="data-title">{{ social.name }}: </span>
             <div class="container sub-data">
-              <a [href]="social.url">{{social.identity}}</a>
+              <a [href]="social.url">{{ social.identity }}</a>
             </div>
           </div>
-        </ng-container>
+        }
+      }
       </div>
     </div>
-    <div class="title cv-margin"
-         *ngIf="curriculum?.profile">
-      <h2>About Me</h2>
-      <div class="line-container">
-        <div class="line"></div>
+    @if (curriculum?.profile) {
+      <div class="title cv-margin">
+        <h2>About Me</h2>
+        <div class="line-container">
+          <div class="line"></div>
+        </div>
       </div>
-    </div>
-    <markdown *ngIf="curriculum?.profile"
-              class="text cv-margin"
-              [data]="curriculum?.profile"></markdown>
-    <div class="title cv-margin"
-         *ngIf="curriculum?.skills">
+    } @if (curriculum?.profile) {
+    <markdown
+      class="text cv-margin"
+      [data]="curriculum?.profile"></markdown>
+  } @if (curriculum?.skills) {
+    <div class="title cv-margin">
       <h2>Skills</h2>
       <div class="line-container">
         <div class="line"></div>
       </div>
     </div>
-    <div class="skills cv-margin flex flex-row flex-wrap items-center justify-center"
-         *ngIf="curriculum?.skills">
-      <div *ngFor="let skill of curriculum?.skills"
-           class="skill w-1/3">
-        {{skill?.name}}
-        <div class="progress">
-          <div class="bar-container">
-            <div class="bar"
-                 *ngFor="let ignore of createArray(tilesCount)"></div>
-          </div>
-          <div class="tile-container">
-            <div class="tile"
-                 *ngFor="let ignore of createArray(progressTilesCount(skill.level))"></div>
+  } @if (curriculum?.skills) {
+    <div class="skills cv-margin flex flex-row flex-wrap items-center justify-center">
+      @for (skill of curriculum?.skills; track skill) {
+        <div
+          class="skill w-1/3">
+          {{ skill?.name }}
+          <div class="progress">
+            <div class="bar-container">
+              @for (ignore of createArray(tilesCount); track ignore) {
+                <div class="bar"></div>
+              }
+            </div>
+            <div class="tile-container">
+              @for (ignore of createArray(progressTilesCount(skill.level)); track ignore) {
+                <div class="tile"></div>
+              }
+            </div>
           </div>
         </div>
-      </div>
+      }
     </div>
-    <div class="title cv-margin"
-         *ngIf="curriculum?.education">
+  } @if (curriculum?.education) {
+    <div class="title cv-margin">
       <h2>Education</h2>
       <div class="line-container">
         <div class="line"></div>
       </div>
     </div>
-    <div *ngIf="curriculum?.education"
-         class="cv-margin">
+  } @if (curriculum?.education) {
+    <div
+      class="cv-margin">
       <table>
-        <tr *ngFor="let edu of curriculum.education"
+        @for (edu of curriculum.education; track edu) {
+          <tr
             class="flex flex-row">
-          <td class="date w-1/5"><span>{{edu.title}}</span> {{edu.startDate.getFullYear()}}
-            -{{edu.endDate.getFullYear() || ''}}</td>
-          <td>
-            <markdown [data]="edu.entity"></markdown>
-          </td>
-        </tr>
+            <td class="date w-1/5"><span>{{ edu.title }}</span> {{ edu.startDate.getFullYear() }}
+              -{{ edu.endDate.getFullYear() || '' }}
+            </td>
+            <td>
+              <markdown [data]="edu.entity"></markdown>
+            </td>
+          </tr>
+        }
       </table>
     </div>
+  } @if (curriculum?.experience) {
     <div class="title cv-margin"
-         *ngIf="curriculum?.experience">
+    >
       <h2>Work History</h2>
       <div class="line-container">
         <div class="line"></div>
       </div>
     </div>
-    <ng-container *ngIf="curriculum?.experience">
-      <table class="cv-margin">
-        <tr *ngFor="let job of curriculum.experience"
-            class="flex flex-row">
+  } @if (curriculum?.experience) {
+    <table class="cv-margin">
+      @for (job of curriculum.experience; track job) {
+        <tr
+          class="flex flex-row">
           <td class="date w-1/5">
-            <span>{{job.name}}</span>, {{job.startDate.getFullYear()}}{{endDate(job.startDate, job.endDate)}}</td>
+            <span>{{ job.name }}</span>, {{ job.startDate.getFullYear() }}{{ endDate(job.startDate, job.endDate) }}
+          </td>
           <td class="w-4/5">
             <markdown [data]="job.description"></markdown>
           </td>
         </tr>
-      </table>
-    </ng-container>
+      }
+    </table>
+  }
   </div>
 </div>

@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, AfterViewChecked {
   mailIcon = faEnvelope;
   arrowRightIcon = faArrowRight;
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize', [])
   onResize() {
     this.updateActionButtonsSize();
   }

@@ -6,13 +6,13 @@
         <div class="information flex flex-col">
           <h1>{{ i18nData?.name }}</h1>
           <div class="xs:flex xs:flex-row xs:flex-wrap">
-            <ng-container *ngFor="let social of socials">
+            @for (social of socials; track social) {
               <a [href]="social.url"
                  target="_blank"
                  [title]="social.label">
                 <fa-icon [icon]="social.icon"></fa-icon>
               </a>
-            </ng-container>
+            }
           </div>
         </div>
         <img class="image-banner"
@@ -27,11 +27,13 @@
           <h3>{{ i18nData?.profile }}</h3>
           <h2>{{ i18nData?.contactMe }}</h2>
           <p>{{ i18nData?.contactMeDescription }}</p>
-          <div *ngIf="i18nData?.phone"
-               class="contact-data flex flex-row">
-            <fa-icon [icon]="phoneIcon"></fa-icon>
-            {{ i18nData?.phone }}
-          </div>
+          @if (i18nData?.phone) {
+            <div
+              class="contact-data flex flex-row">
+              <fa-icon [icon]="phoneIcon"></fa-icon>
+              {{ i18nData?.phone }}
+            </div>
+          }
           <div class="contact-data flex flex-row">
             <fa-icon [icon]="mailIcon"></fa-icon>
             <a class="link"
@@ -58,7 +60,7 @@
       </div>
       <div class="actions-container flex flex-row justify-center"
            #actions_container>
-        <ng-container *ngFor="let action of actions">
+        @for (action of actions; track action) {
           <a [href]="action.url"
              [style.height.px]="actionHeight"
              [style.marginBottom.px]="-actionHeight / 2"
@@ -67,35 +69,41 @@
                      [icon]="action.icon"></fa-icon>
             <h2 class="w-3/4 items-center justify-start hidden sm:block">{{ action.label }}</h2>
           </a>
-        </ng-container>
+        }
       </div>
     </div>
     <div [style.height.px]="actionHeight / 2"
          class="container-padding light-container"></div>
     <div class="container3 container-padding light-container">
       <h3 id="public_projects_fragment">public projects</h3>
-      <div class="project-container flex flex-row flex-wrap items-stretch justify-center"
-           *ngIf="i18nData?.projects">
-        <ng-container *ngFor="let project of i18nData?.projects">
-          <a class="project-card w-19/20 md:w-9/20"
-             [href]="project?.url"
-             target="_blank">
-            <h2>{{ project?.name }}</h2>
-            <p>{{ project?.description }}</p>
-            <div class="flex flex-row flex-wrap"
-                 *ngIf="project?.stack">
-              <span class="stack"
-                    *ngFor="let tech of project?.stack">{{ tech }}</span>
-            </div>
-          </a>
-        </ng-container>
-      </div>
+      @if (i18nData?.projects) {
+        <div class="project-container flex flex-row flex-wrap items-stretch justify-center">
+          @for (project of i18nData?.projects; track project) {
+            <a class="project-card w-19/20 md:w-9/20"
+               [href]="project?.url"
+               target="_blank">
+              <h2>{{ project?.name }}</h2>
+              <p>{{ project?.description }}</p>
+              @if (project?.stack) {
+                <div class="flex flex-row flex-wrap">
+                  @for (tech of project?.stack; track tech) {
+                    <span class="stack"
+                    >{{ tech }}</span>
+                  }
+                </div>
+              }
+            </a>
+          }
+        </div>
+      }
     </div>
     <div class="container4 container-padding dark-container flex flex-col">
       <h3 id="education_fragment">{{ i18nData?.education }}</h3>
       <h2>{{ i18nData?.university }}</h2>
-      <markdown *ngIf="i18nData?.educationData"
-                [data]="i18nData?.educationData"></markdown>
+      @if (i18nData?.educationData) {
+        <markdown
+          [data]="i18nData?.educationData"></markdown>
+      }
     </div>
     <div class="container-padding light-container flex flex-row items-center justify-center">
       <p>Copyright © {{ getDate() }}</p>

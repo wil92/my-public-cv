@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 3000",
-    "build": "ng build --configuration production --build-optimizer --aot --vendor-chunk  --output-hashing=all --progress --extract-css=true --source-map=false",
+    "build": "ng build --configuration production",
     "lint": "ng lint",
     "get-env-var": "node ./node_modules/ng-node-environment/index.js"
   },
